@@ -1,0 +1,79 @@
+﻿@page
+@model TENNIS_COURT_MANAGEMENT.Pages.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Tennis Court Reservation System</title>
+
+    <!-- External Styles and Scripts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-cover bg-center h-screen flex items-center justify-center" style="background-image: url('https://placehold.co/1920x1080?text=Tennis+Court+Background');">
+    <div class="flex items-center justify-center bg-white bg-opacity-90 border border-gray-300 rounded-lg p-8 shadow-lg w-full max-w-4xl">
+        <!-- Image Section -->
+        <div class="hidden md:block w-1/3">
+            <img alt="Image of a tennis player in action" class="rounded-lg shadow-lg" height="500" src="https://storage.googleapis.com/a1aa/image/uWxhWN09rPpxL5AuVgD5QxJcS0GiV3pqPfkUFGRMGO1wOm2JA.jpg" width="300" />
+        </div>
+
+        <!-- Login Form Section -->
+        <div class="w-full md:w-2/3 p-4">
+             <h1 class="text-3xl font-bold mb-6 text-center text-green-600">Tennis Login</h1>
+
+            <!-- Message Display -->
+             
+            <!-- Login Form -->
+            <form method="post" class="flex flex-col gap-4">
+                <input class="p-2 border border-gray-300 rounded-md w-full" type="text" name="username" placeholder="Username" required />
+                <input class="p-2 border border-gray-300 rounded-md w-full" type="password" name="password" placeholder="Password" required />
+                <button class="p-2 bg-green-500 text-white rounded-md w-full hover:bg-green-700" type="submit">Login</button>
+            </form>
+
+            <!-- Error Display -->
+     
+
+            <!-- Registration Link -->
+            <p class="mt-4 text-center">
+                <a class="text-blue-500 hover:underline" asp-page="/Register">Don't have an account? Register here</a>
+            </p>
+
+            <!-- Logout Message -->
+            @if (Request.Query["logout"] == "true")
+            {
+                <p class="text-green-500 mt-4 text-center">You have been logged out successfully.</p>
+            }
+
+            <!-- Forgot Password Link -->
+            <p class="mt-4 text-center">
+                <a class="text-blue-500 hover:underline" asp-page="/ForgotPassword">Forgot Password?</a>
+            </p>
+
+            <!-- Social Media Login -->
+            <div class="mt-6">
+                <p class="text-center text-gray-600">Or login with</p>
+                <div class="flex justify-center gap-4 mt-4">
+                    <a class="p-2 bg-blue-500 text-white rounded-full hover:bg-blue-700" href="https://mail.google.com/"><i class="fas fa-envelope"></i></a>
+                    <a class="p-2 bg-pink-500 text-white rounded-full hover:bg-pink-700" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                    <a class="p-2 bg-blue-700 text-white rounded-full hover:bg-blue-900" href="https://linkedin.com"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Duplicate Image Section -->
+        <div class="hidden md:block w-1/3">
+            <img alt="Image of a tennis player in action" class="rounded-lg shadow-lg" height="500" src="https://storage.googleapis.com/a1aa/image/uWxhWN09rPpxL5AuVgD5QxJcS0GiV3pqPfkUFGRMGO1wOm2JA.jpg" width="300" />
+        </div>
+    </div>
+</body>
+</html>

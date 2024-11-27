@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35514.174 d17.12
+VisualStudioVersion = 17.12.35514.174
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TENNIS_COURT_MANAGEMENT", "TENNIS_COURT_MANAGEMENT\TENNIS_COURT_MANAGEMENT.csproj", "{1E1335DC-B507-486D-9D74-59ED75D3B56E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TENNIS_COURT_MANAGEMENT", "TENNIS_COURT_MANAGEMENT\TENNIS_COURT_MANAGEMENT.csproj", "{1E1335DC-B507-486D-9D74-59ED75D3B56E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +18,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {25BF8F99-B890-4760-9D88-BE0FEC748D78}
 	EndGlobalSection
 EndGlobal
