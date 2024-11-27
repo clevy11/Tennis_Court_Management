@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\TENNIS_COURT_MANAGEMENT.props" />
+</Project>

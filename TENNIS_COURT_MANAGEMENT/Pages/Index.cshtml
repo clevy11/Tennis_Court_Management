@@ -4,7 +4,31 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div id="app">
+    <section class="text-center my-8">
+        <p class="text-lg mb-6">Reserve your spot on the court with ease and convenience.</p>
+        <img alt="A tennis court" class="mx-auto mb-6" height="400" src="https://storage.googleapis.com/a1aa/image/PthEF5OxvFqzChs4zMg2vlRdPblmo8EPxudIxu4UKQQHoK7E.jpg" width="600" />
+        <button class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">Get Started</button>
+    </section>
+
+    <section class="my-8">
+        <h3 class="text-2xl font-bold mb-4">Latest News</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <article class="bg-white p-4 rounded shadow">
+                <img alt="A tennis player" class="w-full mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/icrGuKdidIZxABWetrA8MPGI1eaeByoHi774j8FkU0SBBVZnA.jpg" width="300" />
+                <h4 class="text-xl font-bold mb-2">New Court Opening</h4>
+                <p>We are excited to announce the opening of our new tennis court. Book your slot now!</p>
+            </article>
+            <article class="bg-white p-4 rounded shadow">
+                <img alt="A group of people playing tennis doubles" class="w-full mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/zAgNiUeQnoSzUiBHdW9qQQiFvuMFXTYZZk38alZpCmgPQV2JA.jpg" width="300" />
+                <h4 class="text-xl font-bold mb-2">Doubles Tournament</h4>
+                <p>Join our upcoming doubles tournament and showcase your skills. Register today!</p>
+            </article>
+            <article class="bg-white p-4 rounded shadow">
+                <img alt="A tennis coach giving instructions" class="w-full mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/SAHplnW4e7STFyv10DZzfukbc84XKXP5hi4z3TFj35gigqsTA.jpg" width="300" />
+                <h4 class="text-xl font-bold mb-2">Coaching Sessions</h4>
+                <p>Improve your game with our professional coaching sessions. Sign up now!</p>
+            </article>
+        </div>
+    </section>
 </div>

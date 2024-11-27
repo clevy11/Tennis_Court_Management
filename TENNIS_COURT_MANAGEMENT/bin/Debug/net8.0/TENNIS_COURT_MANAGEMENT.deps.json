@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "TENNIS_COURT_MANAGEMENT/1.0.0": {
+        "runtime": {
+          "TENNIS_COURT_MANAGEMENT.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TENNIS_COURT_MANAGEMENT/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
