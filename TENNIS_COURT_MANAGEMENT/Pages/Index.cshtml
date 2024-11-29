@@ -1,34 +1,109 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Tennis Court Management System";
 }
 
-<div id="app">
-    <section class="text-center my-8">
-        <p class="text-lg mb-6">Reserve your spot on the court with ease and convenience.</p>
-        <img alt="A tennis court" class="mx-auto mb-6" height="400" src="https://storage.googleapis.com/a1aa/image/PthEF5OxvFqzChs4zMg2vlRdPblmo8EPxudIxu4UKQQHoK7E.jpg" width="600" />
-        <button class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">Get Started</button>
-    </section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-tennis-navy text-white">
+        <nav class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold">TennisCourt</div>
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="#home" class="hover:text-tennis-yellow transition-colors">Home</a></li>
+                    <li><a href="#courts" class="hover:text-tennis-yellow transition-colors">Courts</a></li>
+                    <li><a href="#booking" class="hover:text-tennis-yellow transition-colors">Book Now</a></li>
+                    <li><a href="#membership" class="hover:text-tennis-yellow transition-colors">Membership</a></li>
+                    <li><a href="#contact" class="hover:text-tennis-yellow transition-colors">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-    <section class="my-8">
-        <h3 class="text-2xl font-bold mb-4">Latest News</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <article class="bg-white p-4 rounded shadow">
-                <img alt="A tennis player" class="w-full mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/icrGuKdidIZxABWetrA8MPGI1eaeByoHi774j8FkU0SBBVZnA.jpg" width="300" />
-                <h4 class="text-xl font-bold mb-2">New Court Opening</h4>
-                <p>We are excited to announce the opening of our new tennis court. Book your slot now!</p>
-            </article>
-            <article class="bg-white p-4 rounded shadow">
-                <img alt="A group of people playing tennis doubles" class="w-full mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/zAgNiUeQnoSzUiBHdW9qQQiFvuMFXTYZZk38alZpCmgPQV2JA.jpg" width="300" />
-                <h4 class="text-xl font-bold mb-2">Doubles Tournament</h4>
-                <p>Join our upcoming doubles tournament and showcase your skills. Register today!</p>
-            </article>
-            <article class="bg-white p-4 rounded shadow">
-                <img alt="A tennis coach giving instructions" class="w-full mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/SAHplnW4e7STFyv10DZzfukbc84XKXP5hi4z3TFj35gigqsTA.jpg" width="300" />
-                <h4 class="text-xl font-bold mb-2">Coaching Sessions</h4>
-                <p>Improve your game with our professional coaching sessions. Sign up now!</p>
-            </article>
+    <main>
+        <!-- Hero Section with Background Image -->
+        <section class="relative bg-tennis-navy text-white py-32">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0"
+                     alt="Tennis Court"
+                     class="w-full h-full object-cover opacity-30" />
+            </div>
+            <div class="container mx-auto px-4 text-center relative z-10">
+                <h1 class="text-5xl font-bold mb-6">Welcome to TennisCourt</h1>
+                <p class="text-xl mb-8">Book your perfect court today</p>
+                <a href="#booking"
+                   class="inline-block bg-tennis-yellow text-tennis-navy px-8 py-3 rounded-lg
+                          hover:bg-tennis-green hover:text-white transition-colors
+                          font-semibold">
+                    Book Now
+                </a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="container mx-auto py-16 px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Our Features</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1622279457486-62dcc4a431d6"
+                         alt="Court Booking"
+                         class="w-full h-48 object-cover rounded-lg mb-4" />
+                    <h3 class="text-xl font-semibold mb-2">Court Booking</h3>
+                    <p class="text-gray-600">Easy online court reservations</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1542144582-1ba00456b5e3"
+                         alt="Memberships"
+                         class="w-full h-48 object-cover rounded-lg mb-4" />
+                    <h3 class="text-xl font-semibold mb-2">Memberships</h3>
+                    <p class="text-gray-600">Exclusive member benefits</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1544298621-35a764866ff0"
+                         alt="Coaching"
+                         class="w-full h-48 object-cover rounded-lg mb-4" />
+                    <h3 class="text-xl font-semibold mb-2">Coaching</h3>
+                    <p class="text-gray-600">Professional tennis lessons</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1587385789097-0197a7fbd179"
+                         alt="Tournaments"
+                         class="w-full h-48 object-cover rounded-lg mb-4" />
+                    <h3 class="text-xl font-semibold mb-2">Tournaments</h3>
+                    <p class="text-gray-600">Regular competitions</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black py-6">
+        <div class="container mx-auto px-4 text-center text-white">
+            <p>&copy; 2024 TennisCourt Management System. All rights reserved.</p>
         </div>
-    </section>
-</div>
+    </footer>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tennis: {
+                            yellow: '#ccff00',
+                            green: '#2c5530',
+                            navy: '#1a2b4c',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+</body>
+</html>
