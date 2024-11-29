@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\Source\\Repos\\Tennis_Court_Management\\TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj",
+      "projectUniqueName": "C:\\Users\\USER\\source\\repos\\Tennis_Court_Management\\TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj",
       "projectName": "TENNIS_COURT_MANAGEMENT",
-      "projectPath": "C:\\Users\\USER\\Source\\Repos\\Tennis_Court_Management\\TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj",
+      "projectPath": "C:\\Users\\USER\\source\\repos\\Tennis_Court_Management\\TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\Source\\Repos\\Tennis_Court_Management\\TENNIS_COURT_MANAGEMENT\\obj\\",
+      "outputPath": "C:\\Users\\USER\\source\\repos\\Tennis_Court_Management\\TENNIS_COURT_MANAGEMENT\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -70,7 +70,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
