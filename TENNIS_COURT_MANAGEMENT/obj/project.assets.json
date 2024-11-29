@@ -8,19 +8,24 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\USER\\.nuget\\packages\\": {}
+    "C:\\Users\\25078\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\Source\\Repos\\Tennis_Court_Management\\TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj",
+      "projectUniqueName": "C:\\Users\\25078\\Desktop\\dot_net_project\\TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj",
       "projectName": "TENNIS_COURT_MANAGEMENT",
-      "projectPath": "C:\\Users\\USER\\Source\\Repos\\Tennis_Court_Management\\TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj",
-      "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\Source\\Repos\\Tennis_Court_Management\\TENNIS_COURT_MANAGEMENT\\obj\\",
+      "projectPath": "C:\\Users\\25078\\Desktop\\dot_net_project\\TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj",
+      "packagesPath": "C:\\Users\\25078\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\25078\\Desktop\\dot_net_project\\TENNIS_COURT_MANAGEMENT\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\25078\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
