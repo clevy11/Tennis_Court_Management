@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TENNIS_COURT_MANAGEMENT")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4c9f5d541d08bf907422c44bf165332ae310ec17")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6d5b388a6dcaebf6501748477b8fd0c4930d51b6")]
 [assembly: System.Reflection.AssemblyProductAttribute("TENNIS_COURT_MANAGEMENT")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TENNIS_COURT_MANAGEMENT")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

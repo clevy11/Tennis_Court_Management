@@ -1,0 +1,84 @@
+﻿@page
+@model TENNIS_COURT_MANAGEMENT.Pages.BookingModel
+@{
+    ViewData["Title"] = "Book a Court";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h1 class="card-title text-center mb-4">Book a Court</h1>
+                    <p class="text-center text-muted">Select your preferred date, time, and court</p>
+
+                    <form method="post">
+                        <div class="mb-4">
+                            <label for="SelectedDate" class="form-label">Select Date</label>
+                            <input type="text" id="SelectedDate" name="SelectedDate" class="form-control datepicker" placeholder="Pick a date" required />
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="SelectedTime" class="form-label">Select Time</label>
+                            <select id="SelectedTime" name="SelectedTime" class="form-select" required>
+                                <option value="" disabled selected>Select time</option>
+                                <option value="08:00">08:00 AM</option>
+                                <option value="09:00">09:00 AM</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="12:00">12:00 PM</option>
+                                <option value="13:00">01:00 PM</option>
+                                <option value="14:00">02:00 PM</option>
+                                <option value="15:00">03:00 PM</option>
+                                <option value="16:00">04:00 PM</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="SelectedCourtId" class="form-label">Select Court</label>
+                            <select id="SelectedCourtId" name="SelectedCourtId" class="form-select" required>
+                                <option value="" disabled selected>Select court</option>
+                                @foreach (var court in Model.Courts)
+                                {
+                                    <option value="@court.CourtId">@court.CourtName</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="SelectedCoachId" class="form-label">Select Coach (Optional)</label>
+                            <select id="SelectedCoachId" name="SelectedCoachId" class="form-select">
+                                <option value="">No Coach</option>
+                                @foreach (var coach in Model.Coaches)
+                                {
+                                    <option value="@coach.CoachId">@coach.CoachName</option>
+                                }
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Book Court</button>
+                    </form>
+
+                    @if (TempData["Message"] != null)
+                    {
+                        <div class="alert alert-success mt-4">@TempData["Message"]</div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        flatpickr(".datepicker", {
+            altInput: true,
+            altFormat: "F j, Y",
+            dateFormat: "Y-m-d",
+        });
+    });
+</script>

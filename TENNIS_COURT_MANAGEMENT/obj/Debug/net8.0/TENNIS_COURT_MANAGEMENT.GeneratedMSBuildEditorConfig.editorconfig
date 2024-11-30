@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\25078\Desktop\dot_net_project\TENNIS_COURT_MANAGEMENT
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/25078/Desktop/dot_net_project/TENNIS_COURT_MANAGEMENT/Pages/Booking.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va2luZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/25078/Desktop/dot_net_project/TENNIS_COURT_MANAGEMENT/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
