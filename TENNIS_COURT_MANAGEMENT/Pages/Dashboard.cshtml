@@ -1,0 +1,205 @@
+@page
+@model DashboardModel
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - Tennis Court Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation Bar -->
+    <nav class="bg-[#2D5A27] text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-8">
+                    <span class="text-2xl font-bold text-white">Admin Dashboard</span>
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-user-circle text-tennis-yellow text-xl"></i>
+                        <span class="text-md text-white">Welcome, @Model.AdminName</span>
+                    </div>
+                    <form method="post" asp-page-handler="Logout" class="ml-10">
+                        <button type="submit" class="bg-tennis-yellow hover:bg-yellow-500 text-tennis-navy font-semibold px-6 py-2 rounded-md transition duration-300 flex items-center space-x-2">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <div class="w-64 bg-[#1A2238] text-white">
+            <div class="p-4">
+                <nav class="space-y-2">
+                    <a href="/Courts" class="block px-4 py-2 rounded hover:bg-[#2D5A27] transition duration-300">
+                        <i class="fas fa-map-marked-alt mr-2"></i>Court Management
+                    </a>
+                    <a href="/Bookings" class="block px-4 py-2 rounded hover:bg-[#2D5A27] transition duration-300">
+                        <i class="far fa-calendar-alt mr-2"></i>Bookings
+                    </a>
+                    <a href="/Memberships" class="block px-4 py-2 rounded hover:bg-[#2D5A27] transition duration-300">
+                        <i class="fas fa-users mr-2"></i>Membership Plans
+                    </a>
+                    <a href="/" class="block px-4 py-2 rounded hover:bg-[#2D5A27] transition duration-300">
+                        <i class="fas fa-trophy mr-2"></i>Tournaments
+                    </a>
+                    <a href="/Admin/Reports" class="block px-4 py-2 rounded hover:bg-[#2D5A27] transition duration-300">
+                        <i class="fas fa-chart-bar mr-2"></i>Reports
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-8">
+            <div class="container mx-auto px-4 py-8">
+                @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                {
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+                        <span class="block sm:inline">@Model.ErrorMessage</span>
+                    </div>
+                }
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-gray-800">Dashboard Overview</h1>
+                    <p class="text-gray-600">Welcome to your admin dashboard</p>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <!-- Total Users -->
+                    <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#2D5A27]">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-[#2D5A27] bg-opacity-10">
+                                <i class="fas fa-users text-[#2D5A27] text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-500 uppercase">Total Users</p>
+                                <p class="text-2xl font-semibold text-gray-800">@Model.TotalUsers</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Active Bookings -->
+                    <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#FFB800]">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-[#FFB800] bg-opacity-10">
+                                <i class="fas fa-calendar-check text-[#FFB800] text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-500 uppercase">Active Bookings</p>
+                                <p class="text-2xl font-semibold text-gray-800">@Model.ActiveBookings</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Total Courts -->
+                    <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#1A2238]">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-[#1A2238] bg-opacity-10">
+                                <i class="fas fa-table-tennis text-[#1A2238] text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-500 uppercase">Total Courts</p>
+                                <p class="text-2xl font-semibold text-gray-800">@Model.TotalCourts</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Revenue -->
+                    <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-green-500">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-green-500 bg-opacity-10">
+                                <i class="fas fa-dollar-sign text-green-500 text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-500 uppercase">Total Revenue</p>
+                                <p class="text-2xl font-semibold text-gray-800">$@Model.TotalRevenue</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity Section -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Recent Bookings -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-xl font-semibold text-gray-800 mb-4">Recent Bookings</h2>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">User</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Court</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200">
+                                    <!-- Sample data - replace with actual data -->
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">John Doe</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">Court 1</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">2024-01-20</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
+                                                Confirmed
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Active Members -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-xl font-semibold text-gray-800 mb-4">Active Members</h2>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 rounded-full bg-[#2D5A27] flex items-center justify-center text-white">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <p class="text-sm font-medium text-gray-900">Regular Members</p>
+                                        <p class="text-sm text-gray-500">@Model.ActiveMembers active</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 rounded-full bg-[#FFB800] flex items-center justify-center text-white">
+                                        <i class="fas fa-user-tie"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <p class="text-sm font-medium text-gray-900">Coaches</p>
+                                        <p class="text-sm text-gray-500">@Model.ActiveCoaches active</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#2D5A27] text-white py-4 mt-8">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center">
+                <p>&copy; 2024 Tennis Court Management. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

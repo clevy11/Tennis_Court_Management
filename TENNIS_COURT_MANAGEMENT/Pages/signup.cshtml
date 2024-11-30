@@ -1,69 +1,227 @@
-﻿@page
-@model TENNIS_COURT_MANAGEMENT.Pages.signupModel
+@page
+@model TENNIS_COURT_MANAGEMENT.Pages.SignupModel
 @{
-
+    ViewData["Title"] = "Sign Up";
 }
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full bg-gray-50">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"]</title>
-    
-    <!-- Tailwind CSS and Font Awesome -->
+    <title>@ViewData["Title"] - Tennis Court Management</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-        }
-    </style>
-</head>
-<body class="bg-cover bg-center h-screen flex items-center justify-center" style="background-image: url('https://placehold.co/1920x1080?text=Tennis+Court+Background');">
-    <div class="flex items-center justify-center bg-white bg-opacity-90 border border-gray-300 rounded-lg p-8 shadow-lg w-full max-w-4xl">
-        <!-- Left Image -->
-        <div class="hidden md:block w-1/3">
-            <img alt="Image of a tennis player in action" class="rounded-lg shadow-lg" src="https://storage.googleapis.com/a1aa/image/uWxhWN09rPpxL5AuVgD5QxJcS0GiV3pqPfkUFGRMGO1wOm2JA.jpg" />
-        </div>
-
-        <!-- Login Form -->
-        <div class="w-full md:w-2/3 p-4">
-            <h1 class="text-3xl font-bold mb-6 text-center text-green-600">Tennis Login</h1>
-
-
-            <form method="post" class="flex flex-col gap-4">
-                <input class="p-2 border border-gray-300 rounded-md w-full" type="text" name="username" placeholder="Username" required />
-                <input class="p-2 border border-gray-300 rounded-md w-full" type="password" name="password" placeholder="Password" required />
-                <button class="p-2 bg-green-500 text-white rounded-md w-full hover:bg-green-700" type="submit">Login</button>
-            </form>
-
-            <p class="mt-4 text-center">
-                <a class="text-blue-500 hover:underline" asp-page="/Register">Don't have an account? Register here</a>
-            </p>
-
-            @if (Request.Query["logout"] == "true")
-            {
-                <p class="text-green-500 mt-4 text-center">You have been logged out successfully.</p>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'tennis-green': '#2D5A27',
+                        'tennis-yellow': '#FFB800',
+                        'tennis-navy': '#1A2238'
+                    }
+                }
             }
-
-            <p class="mt-4 text-center">
-                <a class="text-blue-500 hover:underline" asp-page="/ForgotPassword">Forgot Password?</a>
-            </p>
-
-            <div class="mt-6">
-                <p class="text-center text-gray-600">Or login with</p>
-                <div class="flex justify-center gap-4 mt-4">
-                    <a class="p-2 bg-blue-500 text-white rounded-full hover:bg-blue-700" href="https://mail.google.com/"><i class="fas fa-envelope"></i></a>
-                    <a class="p-2 bg-pink-500 text-white rounded-full hover:bg-pink-700" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
-                    <a class="p-2 bg-blue-700 text-white rounded-full hover:bg-blue-900" href="https://linkedin.com"><i class="fab fa-linkedin"></i></a>
+        }
+    </script>
+</head>
+<body class="h-full">
+    <div class="min-h-screen flex">
+        <!-- Left Side - Form -->
+        <div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8">
+            <div class="mx-auto w-full max-w-sm lg:max-w-md">
+                <!-- Logo -->
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-tennis-navy">
+                        TennisCourt
+                    </h2>
+                    <p class="mt-2 text-sm text-gray-600">
+                        Create your account
+                    </p>
                 </div>
+
+                <!-- Message Display -->
+                @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                {
+                    <div class="mb-4 bg-red-50 border-l-4 border-red-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-exclamation-circle text-red-400"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-red-700">@Model.ErrorMessage</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+                {
+                    <div class="mb-4 bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-check-circle text-green-400"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">@Model.SuccessMessage</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <!-- Signup Form -->
+                <form method="post" class="space-y-6">
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- Username -->
+                        <div class="col-span-2">
+                            <label for="Username" class="block text-sm font-medium text-gray-700">
+                                Username
+                            </label>
+                            <div class="mt-1 relative rounded-md shadow-sm">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-user text-gray-400"></i>
+                                </div>
+                                <input id="Username" 
+                                       name="Username" 
+                                       type="text" 
+                                       asp-for="Username"
+                                       required
+                                       class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-tennis-green focus:border-tennis-green sm:text-sm"
+                                       placeholder="Choose a username (3-50 characters)" />
+                            </div>
+                            <span asp-validation-for="Username" class="mt-1 text-xs text-red-600"></span>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="col-span-2">
+                            <label for="Email" class="block text-sm font-medium text-gray-700">
+                                Email address
+                            </label>
+                            <div class="mt-1 relative rounded-md shadow-sm">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-envelope text-gray-400"></i>
+                                </div>
+                                <input id="Email" 
+                                       name="Email" 
+                                       type="email" 
+                                       asp-for="Email"
+                                       required
+                                       class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-tennis-green focus:border-tennis-green sm:text-sm"
+                                       placeholder="Enter your email address" />
+                            </div>
+                            <span asp-validation-for="Email" class="mt-1 text-xs text-red-600"></span>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="col-span-2">
+                            <label for="Password" class="block text-sm font-medium text-gray-700">
+                                Password
+                            </label>
+                            <div class="mt-1 relative rounded-md shadow-sm">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock text-gray-400"></i>
+                                </div>
+                                <input id="Password" 
+                                       name="Password" 
+                                       type="password" 
+                                       asp-for="Password"
+                                       required
+                                       class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-tennis-green focus:border-tennis-green sm:text-sm"
+                                       placeholder="Create a strong password (min. 6 characters)" />
+                            </div>
+                            <span asp-validation-for="Password" class="mt-1 text-xs text-red-600"></span>
+                            <p class="mt-1 text-xs text-gray-500">
+                                Password must contain at least one uppercase letter, one lowercase letter, and one number
+                            </p>
+                        </div>
+
+                        <!-- Phone Number -->
+                        <div class="col-span-2 sm:col-span-1">
+                            <label for="Phone_number" class="block text-sm font-medium text-gray-700">
+                                Phone Number
+                            </label>
+                            <div class="mt-1 relative rounded-md shadow-sm">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-phone text-gray-400"></i>
+                                </div>
+                                <input id="Phone_number" 
+                                       name="Phone_number" 
+                                       type="tel" 
+                                       asp-for="Phone_number"
+                                       required
+                                       class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-tennis-green focus:border-tennis-green sm:text-sm"
+                                       placeholder="Your phone number" />
+                            </div>
+                            <span asp-validation-for="Phone_number" class="mt-1 text-xs text-red-600"></span>
+                        </div>
+
+                        <!-- Gender -->
+                        <div class="col-span-2 sm:col-span-1">
+                            <label for="Gender" class="block text-sm font-medium text-gray-700">
+                                Gender
+                            </label>
+                            <div class="mt-1 relative rounded-md shadow-sm">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-venus-mars text-gray-400"></i>
+                                </div>
+                                <select id="Gender" 
+                                        name="Gender" 
+                                        asp-for="Gender"
+                                        required
+                                        class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-tennis-green focus:border-tennis-green sm:text-sm">
+                                    <option value="">Select gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <span asp-validation-for="Gender" class="mt-1 text-xs text-red-600"></span>
+                        </div>
+                    </div>
+
+                    <!-- Hidden Role field -->
+                    <input type="hidden" name="Role" asp-for="Role" value="user" />
+
+                    <!-- Terms and Conditions -->
+                    <div class="flex items-center">
+                        <input id="terms" 
+                               name="terms" 
+                               type="checkbox" 
+                               required
+                               class="h-4 w-4 text-tennis-green focus:ring-tennis-green border-gray-300 rounded">
+                        <label for="terms" class="ml-2 block text-sm text-gray-900">
+                            I agree to the 
+                            <a href="#" class="font-medium text-tennis-green hover:text-tennis-navy">Terms and Conditions</a>
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div>
+                        <button type="submit"
+                                class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-tennis-green hover:bg-tennis-navy focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-tennis-green transition-colors duration-200">
+                            Create Account
+                        </button>
+                    </div>
+                </form>
+
+                <p class="mt-8 text-center text-sm text-gray-600">
+                    Already have an account?
+                    <a href="/login" class="font-medium text-tennis-green hover:text-tennis-navy transition-colors duration-200">
+                        Sign in
+                    </a>
+                </p>
             </div>
         </div>
 
-        <!-- Right Image -->
-        <div class="hidden md:block w-1/3">
-            <img alt="Image of a tennis player in action" class="rounded-lg shadow-lg" src="https://storage.googleapis.com/a1aa/image/uWxhWN09rPpxL5AuVgD5QxJcS0GiV3pqPfkUFGRMGO1wOm2JA.jpg" />
+        <!-- Right Side - Image -->
+        <div class="hidden lg:block relative w-0 flex-1">
+            <img class="absolute inset-0 h-full w-full object-cover" 
+                 src="https://images.unsplash.com/photo-1560012057-4372e14c5085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" 
+                 alt="Tennis Court">
         </div>
     </div>
+
+    <!-- Validation Scripts -->
+    <partial name="_ValidationScriptsPartial" />
 </body>
 </html>

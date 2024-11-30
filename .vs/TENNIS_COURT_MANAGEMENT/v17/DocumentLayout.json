@@ -1,22 +1,66 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\USER\\source\\repos\\Tennis_Court_Management\\",
+  "WorkspaceRootPath": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|c:\\users\\user\\source\\repos\\tennis_court_management\\tennis_court_management\\pages\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|solutionrelative:tennis_court_management\\pages\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|d:\\clb\\school\\dot net\\tennis_cout_management\\tennis_court_management\\pages\\memberships.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|solutionrelative:tennis_court_management\\pages\\memberships.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|c:\\users\\user\\source\\repos\\tennis_court_management\\tennis_court_management\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|d:\\clb\\school\\dot net\\tennis_cout_management\\tennis_court_management\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|solutionrelative:tennis_court_management\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|c:\\users\\user\\source\\repos\\tennis_court_management\\tennis_court_management\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|d:\\clb\\school\\dot net\\tennis_cout_management\\tennis_court_management\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|solutionrelative:tennis_court_management\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|c:\\users\\user\\source\\repos\\tennis_court_management\\tennis_court_management\\pages\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|d:\\clb\\school\\dot net\\tennis_cout_management\\tennis_court_management\\pages\\dashboard.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|solutionrelative:tennis_court_management\\pages\\dashboard.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|d:\\clb\\school\\dot net\\tennis_cout_management\\tennis_court_management\\pages\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|solutionrelative:tennis_court_management\\pages\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|d:\\clb\\school\\dot net\\tennis_cout_management\\tennis_court_management\\pages\\shared\\_dashboardlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|solutionrelative:tennis_court_management\\pages\\shared\\_dashboardlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|d:\\clb\\school\\dot net\\tennis_cout_management\\tennis_court_management\\pages\\memberships.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|solutionrelative:tennis_court_management\\pages\\memberships.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|d:\\clb\\school\\dot net\\tennis_cout_management\\tennis_court_management\\pages\\dshboard.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|solutionrelative:tennis_court_management\\pages\\dshboard.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|d:\\clb\\school\\dot net\\tennis_cout_management\\tennis_court_management\\pages\\signup.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|solutionrelative:tennis_court_management\\pages\\signup.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|d:\\clb\\school\\dot net\\tennis_cout_management\\tennis_court_management\\pages\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|solutionrelative:tennis_court_management\\pages\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|d:\\clb\\school\\dot net\\tennis_cout_management\\tennis_court_management\\pages\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|solutionrelative:tennis_court_management\\pages\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|d:\\clb\\school\\dot net\\tennis_cout_management\\tennis_court_management\\pages\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|solutionrelative:tennis_court_management\\pages\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|d:\\clb\\school\\dot net\\tennis_cout_management\\tennis_court_management\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|solutionrelative:tennis_court_management\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|d:\\clb\\school\\dot net\\tennis_cout_management\\tennis_court_management\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|solutionrelative:tennis_court_management\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|d:\\clb\\school\\dot net\\tennis_cout_management\\tennis_court_management\\pages\\dshboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E1335DC-B507-486D-9D74-59ED75D3B56E}|TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj|solutionrelative:tennis_court_management\\pages\\dshboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +70,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,58 +82,187 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "TENNIS_COURT_MANAGEMENT\\Pages\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "TENNIS_COURT_MANAGEMENT\\Pages\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-29T21:02:51.924Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Memberships.cshtml.cs",
+              "DocumentMoniker": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\Memberships.cshtml.cs",
+              "RelativeDocumentMoniker": "TENNIS_COURT_MANAGEMENT\\Pages\\Memberships.cshtml.cs",
+              "ToolTip": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\Memberships.cshtml.cs",
+              "RelativeToolTip": "TENNIS_COURT_MANAGEMENT\\Pages\\Memberships.cshtml.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAowG0AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T20:39:36.767Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Memberships.cshtml",
+              "DocumentMoniker": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\Memberships.cshtml",
+              "RelativeDocumentMoniker": "TENNIS_COURT_MANAGEMENT\\Pages\\Memberships.cshtml",
+              "ToolTip": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\Memberships.cshtml",
+              "RelativeToolTip": "TENNIS_COURT_MANAGEMENT\\Pages\\Memberships.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABgAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-29T20:39:24.451Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_DashboardLayout.cshtml",
+              "DocumentMoniker": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\Shared\\_DashboardLayout.cshtml",
+              "RelativeDocumentMoniker": "TENNIS_COURT_MANAGEMENT\\Pages\\Shared\\_DashboardLayout.cshtml",
+              "ToolTip": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\Shared\\_DashboardLayout.cshtml",
+              "RelativeToolTip": "TENNIS_COURT_MANAGEMENT\\Pages\\Shared\\_DashboardLayout.cshtml",
+              "ViewState": "AgIAAAUAAAAAAaBClqIwwEcAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-29T20:31:29.023Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Program.cs",
+              "RelativeDocumentMoniker": "TENNIS_COURT_MANAGEMENT\\Program.cs",
+              "ToolTip": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Program.cs",
+              "RelativeToolTip": "TENNIS_COURT_MANAGEMENT\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T16:59:24.374Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Dashboard.cshtml.cs",
+              "DocumentMoniker": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\Dashboard.cshtml.cs",
+              "RelativeDocumentMoniker": "TENNIS_COURT_MANAGEMENT\\Pages\\Dashboard.cshtml.cs",
+              "ToolTip": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\Dashboard.cshtml.cs",
+              "RelativeToolTip": "TENNIS_COURT_MANAGEMENT\\Pages\\Dashboard.cshtml.cs",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAiwJIAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T14:17:56.833Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "TENNIS_COURT_MANAGEMENT\\Pages\\Dashboard.cshtml",
+              "ToolTip": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\Dashboard.cshtml",
+              "RelativeToolTip": "TENNIS_COURT_MANAGEMENT\\Pages\\Dashboard.cshtml",
+              "ViewState": "AgIAACcAAAAAAAAAAAAkwDkAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-29T14:15:35.772Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Login.cshtml.cs",
+              "DocumentMoniker": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\Login.cshtml.cs",
+              "RelativeDocumentMoniker": "TENNIS_COURT_MANAGEMENT\\Pages\\Login.cshtml.cs",
+              "ToolTip": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\Login.cshtml.cs",
+              "RelativeToolTip": "TENNIS_COURT_MANAGEMENT\\Pages\\Login.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGoAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T13:44:08.688Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Dshboard.cshtml.cs",
+              "DocumentMoniker": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\Dshboard.cshtml.cs",
+              "RelativeDocumentMoniker": "TENNIS_COURT_MANAGEMENT\\Pages\\Dshboard.cshtml.cs",
+              "ToolTip": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\Dshboard.cshtml.cs",
+              "RelativeToolTip": "TENNIS_COURT_MANAGEMENT\\Pages\\Dshboard.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T12:41:42.224Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Dshboard.cshtml",
+              "DocumentMoniker": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\Dshboard.cshtml",
+              "RelativeDocumentMoniker": "TENNIS_COURT_MANAGEMENT\\Pages\\Dshboard.cshtml",
+              "ToolTip": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\Dshboard.cshtml",
+              "RelativeToolTip": "TENNIS_COURT_MANAGEMENT\\Pages\\Dshboard.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-29T12:41:23.049Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\appsettings.json",
+              "RelativeDocumentMoniker": "TENNIS_COURT_MANAGEMENT\\appsettings.json",
+              "ToolTip": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\appsettings.json",
+              "RelativeToolTip": "TENNIS_COURT_MANAGEMENT\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-29T12:29:22.65Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "signup.cshtml.cs",
+              "DocumentMoniker": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\signup.cshtml.cs",
+              "RelativeDocumentMoniker": "TENNIS_COURT_MANAGEMENT\\Pages\\signup.cshtml.cs",
+              "ToolTip": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\signup.cshtml.cs",
+              "RelativeToolTip": "TENNIS_COURT_MANAGEMENT\\Pages\\signup.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAI8AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T10:43:46.661Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "signup.cshtml",
-              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\Tennis_Court_Management\\TENNIS_COURT_MANAGEMENT\\Pages\\signup.cshtml",
+              "DocumentMoniker": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\signup.cshtml",
               "RelativeDocumentMoniker": "TENNIS_COURT_MANAGEMENT\\Pages\\signup.cshtml",
-              "ToolTip": "C:\\Users\\USER\\source\\repos\\Tennis_Court_Management\\TENNIS_COURT_MANAGEMENT\\Pages\\signup.cshtml",
+              "ToolTip": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\signup.cshtml",
               "RelativeToolTip": "TENNIS_COURT_MANAGEMENT\\Pages\\signup.cshtml",
-              "ViewState": "AgIAADIAAAAAAAAAAAAUwEUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFgAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-11-27T16:53:52.498Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 10,
               "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\Tennis_Court_Management\\TENNIS_COURT_MANAGEMENT\\Pages\\Login.cshtml",
+              "DocumentMoniker": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\Login.cshtml",
               "RelativeDocumentMoniker": "TENNIS_COURT_MANAGEMENT\\Pages\\Login.cshtml",
-              "ToolTip": "C:\\Users\\USER\\source\\repos\\Tennis_Court_Management\\TENNIS_COURT_MANAGEMENT\\Pages\\Login.cshtml",
+              "ToolTip": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\Login.cshtml",
               "RelativeToolTip": "TENNIS_COURT_MANAGEMENT\\Pages\\Login.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABPAAAAAAAAAA==",
+              "ViewState": "AgIAAJoAAAAAAAAAAAAAACQAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-27T14:03:28.043Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\Tennis_Court_Management\\TENNIS_COURT_MANAGEMENT\\Pages\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "TENNIS_COURT_MANAGEMENT\\Pages\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\USER\\source\\repos\\Tennis_Court_Management\\TENNIS_COURT_MANAGEMENT\\Pages\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "TENNIS_COURT_MANAGEMENT\\Pages\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-27T12:35:28.438Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-27T14:03:28.043Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\Tennis_Court_Management\\TENNIS_COURT_MANAGEMENT\\Pages\\Index.cshtml",
+              "DocumentMoniker": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\Index.cshtml",
               "RelativeDocumentMoniker": "TENNIS_COURT_MANAGEMENT\\Pages\\Index.cshtml",
-              "ToolTip": "C:\\Users\\USER\\source\\repos\\Tennis_Court_Management\\TENNIS_COURT_MANAGEMENT\\Pages\\Index.cshtml",
+              "ToolTip": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\Pages\\Index.cshtml",
               "RelativeToolTip": "TENNIS_COURT_MANAGEMENT\\Pages\\Index.cshtml",
-              "ViewState": "AgIAABEAAAAAAAAAAAAswBcAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAADgAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-11-27T12:17:12.17Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         }

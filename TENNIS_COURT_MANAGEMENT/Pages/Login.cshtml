@@ -1,79 +1,211 @@
-﻿@page
+@page
 @model TENNIS_COURT_MANAGEMENT.Pages.LoginModel
 @{
     ViewData["Title"] = "Login";
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full bg-gray-50">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Tennis Court Reservation System</title>
-
-    <!-- External Styles and Scripts -->
+    <title>@ViewData["Title"] - Tennis Court Management</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-        }
-    </style>
-</head>
-<body class="bg-cover bg-center h-screen flex items-center justify-center" style="background-image: url('https://placehold.co/1920x1080?text=Tennis+Court+Background');">
-    <div class="flex items-center justify-center bg-white bg-opacity-90 border border-gray-300 rounded-lg p-8 shadow-lg w-full max-w-4xl">
-        <!-- Image Section -->
-        <div class="hidden md:block w-1/3">
-            <img alt="Image of a tennis player in action" class="rounded-lg shadow-lg" height="500" src="https://storage.googleapis.com/a1aa/image/uWxhWN09rPpxL5AuVgD5QxJcS0GiV3pqPfkUFGRMGO1wOm2JA.jpg" width="300" />
-        </div>
-
-        <!-- Login Form Section -->
-        <div class="w-full md:w-2/3 p-4">
-             <h1 class="text-3xl font-bold mb-6 text-center text-green-600">Tennis Login</h1>
-
-            <!-- Message Display -->
-             
-            <!-- Login Form -->
-            <form method="post" class="flex flex-col gap-4">
-                <input class="p-2 border border-gray-300 rounded-md w-full" type="text" name="username" placeholder="Username" required />
-                <input class="p-2 border border-gray-300 rounded-md w-full" type="password" name="password" placeholder="Password" required />
-                <button class="p-2 bg-green-500 text-white rounded-md w-full hover:bg-green-700" type="submit">Login</button>
-            </form>
-
-            <!-- Error Display -->
-     
-
-            <!-- Registration Link -->
-            <p class="mt-4 text-center">
-                <a class="text-blue-500 hover:underline" asp-page="/signup">Don't have an account? Register here</a>
-            </p>
-
-            <!-- Logout Message -->
-            @if (Request.Query["logout"] == "true")
-            {
-                <p class="text-green-500 mt-4 text-center">You have been logged out successfully.</p>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'tennis-green': '#2D5A27',
+                        'tennis-yellow': '#FFB800',
+                        'tennis-navy': '#1A2238'
+                    }
+                }
             }
-
-            <!-- Forgot Password Link -->
-            <p class="mt-4 text-center">
-                <a class="text-blue-500 hover:underline" asp-page="/ForgotPassword">Forgot Password?</a>
-            </p>
-
-            <!-- Social Media Login -->
-            <div class="mt-6">
-                <p class="text-center text-gray-600">Or login with</p>
-                <div class="flex justify-center gap-4 mt-4">
-                    <a class="p-2 bg-blue-500 text-white rounded-full hover:bg-blue-700" href="https://mail.google.com/"><i class="fas fa-envelope"></i></a>
-                    <a class="p-2 bg-pink-500 text-white rounded-full hover:bg-pink-700" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
-                    <a class="p-2 bg-blue-700 text-white rounded-full hover:bg-blue-900" href="https://linkedin.com"><i class="fab fa-linkedin"></i></a>
+        }
+    </script>
+</head>
+<body class="h-full">
+    <div class="min-h-screen flex">
+        <!-- Left Side - Image -->
+        <div class="hidden lg:block relative w-0 flex-1">
+            <img class="absolute inset-0 h-full w-full object-cover" 
+                 src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0" 
+                 alt="Tennis Court">
+            <div class="absolute inset-0 bg-tennis-navy bg-opacity-40 backdrop-blur-sm"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center text-white px-4">
+                    <h1 class="text-4xl font-bold mb-4">Welcome Back!</h1>
+                    <p class="text-xl">Access your tennis court management dashboard</p>
                 </div>
             </div>
         </div>
 
-        <!-- Duplicate Image Section -->
-        <div class="hidden md:block w-1/3">
-            <img alt="Image of a tennis player in action" class="rounded-lg shadow-lg" height="500" src="https://storage.googleapis.com/a1aa/image/uWxhWN09rPpxL5AuVgD5QxJcS0GiV3pqPfkUFGRMGO1wOm2JA.jpg" width="300" />
+        <!-- Right Side - Login Form -->
+        <div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8">
+            <div class="mx-auto w-full max-w-sm">
+                <!-- Logo -->
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-tennis-navy">
+                        TennisCourt
+                    </h2>
+                    <p class="mt-2 text-sm text-gray-600">
+                        Sign in to access your account
+                    </p>
+                </div>
+
+                <!-- Message Display -->
+                @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                {
+                    <div class="mb-4 bg-red-50 border-l-4 border-red-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-exclamation-circle text-red-400"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-red-700">@Model.ErrorMessage</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+                {
+                    <div class="mb-4 bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-check-circle text-green-400"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">@Model.SuccessMessage</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <!-- Login Form -->
+                <form class="space-y-6" method="post">
+                    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                    {
+                        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                            <span class="block sm:inline">@Model.ErrorMessage</span>
+                        </div>
+                    }
+
+                    @if (TempData["SuccessMessage"] != null)
+                    {
+                        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                            <span class="block sm:inline">@TempData["SuccessMessage"]</span>
+                        </div>
+                    }
+
+                    <div>
+                        <label for="Email" class="block text-sm font-medium text-gray-700">
+                            Email address
+                        </label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-envelope text-gray-400"></i>
+                            </div>
+                            <input id="Email" 
+                                   name="Email" 
+                                   type="email" 
+                                   asp-for="Email"
+                                   class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-tennis-green focus:border-tennis-green sm:text-sm"
+                                   placeholder="Enter your email" 
+                                   required />
+                        </div>
+                        <span asp-validation-for="Email" class="mt-1 text-xs text-red-600"></span>
+                    </div>
+
+                    <div>
+                        <label for="Password" class="block text-sm font-medium text-gray-700">
+                            Password
+                        </label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-gray-400"></i>
+                            </div>
+                            <input id="Password" 
+                                   name="Password" 
+                                   type="password" 
+                                   asp-for="Password"
+                                   class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-tennis-green focus:border-tennis-green sm:text-sm"
+                                   placeholder="Enter your password" 
+                                   required />
+                        </div>
+                        <span asp-validation-for="Password" class="mt-1 text-xs text-red-600"></span>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input id="remember_me" 
+                                   name="remember_me" 
+                                   type="checkbox"
+                                   class="h-4 w-4 text-tennis-green focus:ring-tennis-green border-gray-300 rounded">
+                            <label for="remember_me" class="ml-2 block text-sm text-gray-900">
+                                Remember me
+                            </label>
+                        </div>
+
+                        <div class="text-sm">
+                            <a href="#" class="font-medium text-tennis-green hover:text-tennis-navy">
+                                Forgot your password?
+                            </a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="submit"
+                                class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-tennis-green hover:bg-tennis-navy focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-tennis-green">
+                            Sign in
+                        </button>
+                    </div>
+                </form>
+
+                <div class="mt-6">
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-white text-gray-500">Or continue with</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 grid grid-cols-3 gap-3">
+                        <div>
+                            <a href="#"
+                               class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                <i class="fab fa-google text-red-500"></i>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#"
+                               class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                <i class="fab fa-facebook text-blue-600"></i>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#"
+                               class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                <i class="fab fa-twitter text-blue-400"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="mt-8 text-center text-sm text-gray-600">
+                    Not a member?
+                    <a href="/signup" class="font-medium text-tennis-green hover:text-tennis-navy">
+                        Sign up now
+                    </a>
+                </p>
+            </div>
         </div>
     </div>
+
+    <!-- Validation Scripts -->
+    <partial name="_ValidationScriptsPartial" />
 </body>
 </html>

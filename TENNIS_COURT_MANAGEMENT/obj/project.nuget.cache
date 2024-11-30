@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "diR7HCdiMe8=",
+  "dgSpecHash": "XXfgyizL2mA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\USER\\source\\repos\\Tennis_Court_Management\\TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\HP\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\system.data.sqlclient\\4.9.0\\system.data.sqlclient.4.9.0.nupkg.sha512"
+  ],
   "logs": []
 }

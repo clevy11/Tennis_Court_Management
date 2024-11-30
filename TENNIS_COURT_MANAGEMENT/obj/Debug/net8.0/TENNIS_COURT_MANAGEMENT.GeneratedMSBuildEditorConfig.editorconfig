@@ -9,47 +9,73 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TENNIS_COURT_MANAGEMENT
 build_property.RootNamespace = TENNIS_COURT_MANAGEMENT
-build_property.ProjectDir = C:\Users\USER\source\repos\Tennis_Court_Management\TENNIS_COURT_MANAGEMENT\
+build_property.ProjectDir = d:\clb\school\Dot net\Tennis_cout_management\TENNIS_COURT_MANAGEMENT\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\USER\source\repos\Tennis_Court_Management\TENNIS_COURT_MANAGEMENT
+build_property.MSBuildProjectDirectory = d:\clb\school\Dot net\Tennis_cout_management\TENNIS_COURT_MANAGEMENT
 build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/USER/source/repos/Tennis_Court_Management/TENNIS_COURT_MANAGEMENT/Pages/Error.cshtml]
+[d:/clb/school/Dot net/Tennis_cout_management/TENNIS_COURT_MANAGEMENT/Pages/Bookings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va2luZ3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/clb/school/Dot net/Tennis_cout_management/TENNIS_COURT_MANAGEMENT/Pages/Courts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/clb/school/Dot net/Tennis_cout_management/TENNIS_COURT_MANAGEMENT/Pages/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/clb/school/Dot net/Tennis_cout_management/TENNIS_COURT_MANAGEMENT/Pages/Dshboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRHNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/clb/school/Dot net/Tennis_cout_management/TENNIS_COURT_MANAGEMENT/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/source/repos/Tennis_Court_Management/TENNIS_COURT_MANAGEMENT/Pages/Index.cshtml]
+[d:/clb/school/Dot net/Tennis_cout_management/TENNIS_COURT_MANAGEMENT/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/source/repos/Tennis_Court_Management/TENNIS_COURT_MANAGEMENT/Pages/Login.cshtml]
+[d:/clb/school/Dot net/Tennis_cout_management/TENNIS_COURT_MANAGEMENT/Pages/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/source/repos/Tennis_Court_Management/TENNIS_COURT_MANAGEMENT/Pages/Privacy.cshtml]
+[d:/clb/school/Dot net/Tennis_cout_management/TENNIS_COURT_MANAGEMENT/Pages/Memberships.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyc2hpcHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/clb/school/Dot net/Tennis_cout_management/TENNIS_COURT_MANAGEMENT/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/source/repos/Tennis_Court_Management/TENNIS_COURT_MANAGEMENT/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[d:/clb/school/Dot net/Tennis_cout_management/TENNIS_COURT_MANAGEMENT/Pages/Shared/_DashboardLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9EYXNoYm9hcmRMYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/clb/school/Dot net/Tennis_cout_management/TENNIS_COURT_MANAGEMENT/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/source/repos/Tennis_Court_Management/TENNIS_COURT_MANAGEMENT/Pages/signup.cshtml]
+[d:/clb/school/Dot net/Tennis_cout_management/TENNIS_COURT_MANAGEMENT/Pages/signup.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcc2lnbnVwLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/source/repos/Tennis_Court_Management/TENNIS_COURT_MANAGEMENT/Pages/_ViewImports.cshtml]
+[d:/clb/school/Dot net/Tennis_cout_management/TENNIS_COURT_MANAGEMENT/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/source/repos/Tennis_Court_Management/TENNIS_COURT_MANAGEMENT/Pages/_ViewStart.cshtml]
+[d:/clb/school/Dot net/Tennis_cout_management/TENNIS_COURT_MANAGEMENT/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/source/repos/Tennis_Court_Management/TENNIS_COURT_MANAGEMENT/Pages/Shared/_Layout.cshtml]
+[d:/clb/school/Dot net/Tennis_cout_management/TENNIS_COURT_MANAGEMENT/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-atty3u3nc5
