@@ -73,7 +73,7 @@ namespace TENNIS_COURT_MANAGEMENT.Pages
                     try
                     {
                         string sql = @"
-                            SELECT user_id, username, Email, Role, Phone_number, Gender 
+                            SELECT user_id, username, Email, Role, Phone_number, gender 
                             FROM Users 
                             WHERE Email = @Email AND Password = @Password";
 
@@ -106,10 +106,15 @@ namespace TENNIS_COURT_MANAGEMENT.Pages
                                             System.Diagnostics.Debug.WriteLine("Redirecting to admin dashboard");
                                             return RedirectToPage("/Dashboard");
                                         }
-                                        else
+                                        else if (userRole.ToLower().Trim() == "user")
                                         {
                                             System.Diagnostics.Debug.WriteLine($"Redirecting to user dashboard. Role: {userRole}");
-                                            return RedirectToPage("/Dshboard");
+                                            return RedirectToPage("/UserDashboard/Index");
+                                        }
+                                        else
+                                        {
+                                            System.Diagnostics.Debug.WriteLine($"Unknown role: {userRole}");
+                                            return RedirectToPage("/Index");
                                         }
                                     }
                                     else

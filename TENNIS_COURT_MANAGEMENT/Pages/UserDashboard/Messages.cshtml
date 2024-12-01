@@ -1,0 +1,83 @@
+@page
+@model TENNIS_COURT_MANAGEMENT.Pages.UserDashboard.MessagesModel
+@{
+    ViewData["Title"] = "Messages";
+    Layout = "_UserDashboardLayout";
+}
+
+<div class="space-y-6">
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <span class="block sm:inline">@Model.ErrorMessage</span>
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+    {
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+            <span class="block sm:inline">@Model.SuccessMessage</span>
+        </div>
+    }
+
+    <div class="bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-bold text-tennis-navy mb-6">Contact Admin</h2>
+        
+        <form method="post" class="space-y-6">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Subject</label>
+                <input type="text" name="Subject" required
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-tennis-green focus:ring-tennis-green">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Message</label>
+                <textarea name="Content" rows="4" required
+                          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-tennis-green focus:ring-tennis-green"></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-tennis-green hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                Send Message
+            </button>
+        </form>
+    </div>
+
+    <!-- Message History -->
+    <div class="bg-white rounded-lg shadow-md p-6">
+        <h3 class="text-xl font-semibold text-tennis-navy mb-4">Message History</h3>
+        @if (Model.Messages != null && Model.Messages.Any())
+        {
+            <div class="space-y-4">
+                @foreach (var message in Model.Messages)
+                {
+                    <div class="border rounded-lg p-4 @(message.IsRead ? "bg-gray-50" : "bg-yellow-50")">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h4 class="font-medium">@message.Subject</h4>
+                                <p class="text-sm text-gray-500">@message.SentDate.ToString("MMM dd, yyyy HH:mm")</p>
+                            </div>
+                            @if (!message.IsRead)
+                            {
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                    New
+                                </span>
+                            }
+                        </div>
+                        <p class="text-gray-700">@message.Content</p>
+                        @if (!string.IsNullOrEmpty(message.Reply))
+                        {
+                            <div class="mt-2 pl-4 border-l-2 border-tennis-green">
+                                <p class="text-sm text-gray-600">Admin Reply:</p>
+                                <p class="text-gray-700">@message.Reply</p>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <p class="text-gray-500">No messages found</p>
+        }
+    </div>
+</div>

@@ -2,9 +2,20 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
 
 namespace TENNIS_COURT_MANAGEMENT.Pages
 {
+    public class BookingInfo
+    {
+        public string UserName { get; set; }
+        public string CourtName { get; set; }
+        public DateTime Date { get; set; }
+        public string Status { get; set; }
+    }
+
     public class DashboardModel : PageModel
     {
         private readonly IConfiguration _configuration;
@@ -19,6 +30,7 @@ namespace TENNIS_COURT_MANAGEMENT.Pages
         public int ActiveCoaches { get; set; }
         public int PendingBookings { get; set; }
         public string ErrorMessage { get; set; }
+        public List<BookingInfo> Bookings { get; set; } = new List<BookingInfo>();
 
         public DashboardModel(IConfiguration configuration)
         {
@@ -57,6 +69,42 @@ namespace TENNIS_COURT_MANAGEMENT.Pages
                 {
                     connection.Open();
                     Console.WriteLine("Database connection opened successfully");
+
+                    // Get recent bookings
+                    try
+                    {
+                        string recentBookingsQuery = @"
+                            SELECT TOP 5 
+                                u.username as UserName,
+                                c.Court_Name as CourtName,
+                                b.date as Date,
+                                b.Status
+                            FROM Booking b
+                            JOIN Users u ON b.user_id = u.user_id
+                            JOIN Court c ON b.court_id = c.court_id
+                            ORDER BY b.date DESC, b.time DESC";
+
+                        using (SqlCommand command = new SqlCommand(recentBookingsQuery, connection))
+                        {
+                            using (SqlDataReader reader = command.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    Bookings.Add(new BookingInfo
+                                    {
+                                        UserName = reader.GetString(0),
+                                        CourtName = reader.GetString(1),
+                                        Date = reader.GetDateTime(2),
+                                        Status = reader.GetString(3)
+                                    });
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error in Recent Bookings query: {ex.Message}");
+                    }
 
                     // Get total users (excluding admins)
                     try
@@ -125,7 +173,7 @@ namespace TENNIS_COURT_MANAGEMENT.Pages
                     {
                         string activeMemberQuery = @"
                             SELECT COUNT(DISTINCT m.user_id) 
-                            FROM Membership m 
+                            FROM Menbership m 
                             WHERE m.status = 'approved'";
                         using (SqlCommand command = new SqlCommand(activeMemberQuery, connection))
                         {
@@ -157,10 +205,10 @@ namespace TENNIS_COURT_MANAGEMENT.Pages
                     // Get pending bookings
                     try
                     {
-                        string pendingQuery = @"
+                        string pendingBookingQuery = @"
                             SELECT COUNT(*) FROM Booking 
-                            WHERE status = 'pending'";
-                        using (SqlCommand command = new SqlCommand(pendingQuery, connection))
+                            WHERE status = 'Pending'";
+                        using (SqlCommand command = new SqlCommand(pendingBookingQuery, connection))
                         {
                             PendingBookings = (int)command.ExecuteScalar();
                             Console.WriteLine($"Pending Bookings Query Result: {PendingBookings}");
@@ -175,10 +223,9 @@ namespace TENNIS_COURT_MANAGEMENT.Pages
                     try
                     {
                         string revenueQuery = @"
-                            SELECT ISNULL(SUM(CAST(price AS decimal(10,2))), 0)
-                            FROM Court c 
-                            INNER JOIN Booking b ON c.court_id = b.court_id
-                            WHERE b.status = 'Confirmed'";
+                            SELECT COALESCE(SUM(amount), 0)
+                            FROM Payments
+                            WHERE status = 'Completed'";
                         using (SqlCommand command = new SqlCommand(revenueQuery, connection))
                         {
                             TotalRevenue = Convert.ToDecimal(command.ExecuteScalar());
@@ -193,22 +240,147 @@ namespace TENNIS_COURT_MANAGEMENT.Pages
             }
             catch (Exception ex)
             {
-                string error = $"Error loading dashboard data: {ex.Message}";
-                Console.WriteLine(error);
-                ErrorMessage = error;
-                
-                // Set default values if database access fails
-                TotalUsers = 0;
-                TotalBookings = 0;
-                TotalCourts = 0;
-                ActiveBookings = 0;
-                ActiveMembers = 0;
-                ActiveCoaches = 0;
-                PendingBookings = 0;
-                TotalRevenue = 0;
+                ErrorMessage = ex.Message;
+                Console.WriteLine($"General error in Dashboard: {ex.Message}");
             }
 
             return Page();
+        }
+
+        public IActionResult OnGetGenerateReport()
+        {
+            try
+            {
+                string connectionString = _configuration.GetConnectionString("Monday");
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Get all the statistics first
+                    string statsQuery = @"
+                        SELECT 
+                            (SELECT COUNT(*) FROM Users WHERE Role = 'user') as TotalUsers,
+                            (SELECT COUNT(*) FROM Booking WHERE status IS NOT NULL) as TotalBookings,
+                            (SELECT COUNT(*) FROM Court) as TotalCourts,
+                            (SELECT COUNT(*) FROM Booking WHERE status = 'Confirmed') as ActiveBookings,
+                            (SELECT COUNT(DISTINCT user_id) FROM Menbership WHERE status = 'approved') as ActiveMembers,
+                            (SELECT COUNT(*) FROM coach WHERE status = 'Active') as ActiveCoaches,
+                            (SELECT COUNT(*) FROM Booking WHERE status = 'Pending') as PendingBookings,
+                            (SELECT COALESCE(SUM(amount), 0) FROM Payments WHERE status = 'Completed') as TotalRevenue";
+
+                    using (SqlCommand command = new SqlCommand(statsQuery, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                TotalUsers = reader.GetInt32(0);
+                                TotalBookings = reader.GetInt32(1);
+                                TotalCourts = reader.GetInt32(2);
+                                ActiveBookings = reader.GetInt32(3);
+                                ActiveMembers = reader.GetInt32(4);
+                                ActiveCoaches = reader.GetInt32(5);
+                                PendingBookings = reader.GetInt32(6);
+                                TotalRevenue = reader.GetDecimal(7);
+                            }
+                        }
+                    }
+
+                    // Get recent bookings
+                    string bookingsQuery = @"
+                        SELECT TOP 10
+                            u.username as UserName,
+                            c.Court_Name as CourtName,
+                            b.date as Date,
+                            b.Status
+                        FROM Booking b
+                        JOIN Users u ON b.user_id = u.user_id
+                        JOIN Court c ON b.court_id = c.court_id
+                        ORDER BY b.date DESC, b.time DESC";
+
+                    Bookings.Clear();
+                    using (SqlCommand command = new SqlCommand(bookingsQuery, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Bookings.Add(new BookingInfo
+                                {
+                                    UserName = reader.GetString(0),
+                                    CourtName = reader.GetString(1),
+                                    Date = reader.GetDateTime(2),
+                                    Status = reader.GetString(3)
+                                });
+                            }
+                        }
+                    }
+                }
+
+                // Generate PDF with the fresh data
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    Document document = new Document(PageSize.A4, 25, 25, 30, 30);
+                    PdfWriter writer = PdfWriter.GetInstance(document, ms);
+
+                    document.Open();
+
+                    // Add title and header
+                    Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 18);
+                    Font headerFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 14);
+                    Font normalFont = FontFactory.GetFont(FontFactory.HELVETICA, 12);
+
+                    document.Add(new Paragraph("Tennis Court Management System Report", titleFont));
+                    document.Add(new Paragraph($"Generated on {DateTime.Now:yyyy-MM-dd HH:mm}", normalFont));
+                    document.Add(new Paragraph("----------------------------------------"));
+
+                    // Add statistics
+                    document.Add(new Paragraph("\nSystem Statistics", headerFont));
+                    document.Add(new Paragraph($"Total Users: {TotalUsers}", normalFont));
+                    document.Add(new Paragraph($"Active Members: {ActiveMembers}", normalFont));
+                    document.Add(new Paragraph($"Total Courts: {TotalCourts}", normalFont));
+                    document.Add(new Paragraph($"Active Bookings: {ActiveBookings}", normalFont));
+                    document.Add(new Paragraph($"Pending Bookings: {PendingBookings}", normalFont));
+                    document.Add(new Paragraph($"Active Coaches: {ActiveCoaches}", normalFont));
+                    document.Add(new Paragraph($"Total Revenue: ${TotalRevenue:F2}", normalFont));
+                    document.Add(new Paragraph("----------------------------------------"));
+
+                    // Add recent bookings table
+                    document.Add(new Paragraph("\nRecent Bookings", headerFont));
+                    PdfPTable table = new PdfPTable(4);
+                    table.WidthPercentage = 100;
+                    table.SetWidths(new float[] { 2f, 2f, 2f, 1.5f });
+
+                    // Add table headers
+                    table.AddCell(new PdfPCell(new Phrase("User", headerFont)));
+                    table.AddCell(new PdfPCell(new Phrase("Court", headerFont)));
+                    table.AddCell(new PdfPCell(new Phrase("Date", headerFont)));
+                    table.AddCell(new PdfPCell(new Phrase("Status", headerFont)));
+
+                    // Add table data
+                    foreach (var booking in Bookings)
+                    {
+                        table.AddCell(new Phrase(booking.UserName, normalFont));
+                        table.AddCell(new Phrase(booking.CourtName, normalFont));
+                        table.AddCell(new Phrase(booking.Date.ToString("yyyy-MM-dd"), normalFont));
+                        table.AddCell(new Phrase(booking.Status, normalFont));
+                    }
+
+                    document.Add(table);
+
+                    document.Close();
+                    writer.Close();
+
+                    var pdfBytes = ms.ToArray();
+                    return File(pdfBytes, "application/pdf", $"TennisCourtReport_{DateTime.Now:yyyyMMdd}.pdf");
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = $"Error generating report: {ex.Message}";
+                Console.WriteLine($"Report generation error: {ex.Message}");
+                return RedirectToPage();
+            }
         }
 
         public IActionResult OnPostLogout()

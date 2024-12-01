@@ -1,0 +1,120 @@
+@page
+@model TENNIS_COURT_MANAGEMENT.Pages.UserDashboard.IndexModel
+@{
+    ViewData["Title"] = "User Dashboard";
+    Layout = "_UserDashboardLayout";
+}
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Court Bookings -->
+    <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="flex items-center justify-between mb-4">
+            <h2 class="text-xl font-semibold text-tennis-navy">My Bookings</h2>
+            <i class="fas fa-calendar text-tennis-green text-2xl"></i>
+        </div>
+        @if (Model.RecentBookings.Any())
+        {
+            <div class="space-y-3">
+                @foreach (var booking in Model.RecentBookings)
+                {
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                        <div>
+                            <p class="font-medium">Court @booking.CourtId</p>
+                            <p class="text-sm text-gray-600">@booking.Date.ToShortDateString() @booking.Time</p>
+                        </div>
+                        <span class="px-3 py-1 rounded-full text-sm @(booking.Status == "Confirmed" ? "bg-green-100 text-green-800" : "bg-yellow-100 text-yellow-800")">
+                            @booking.Status
+                        </span>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <p class="text-gray-500">No recent bookings</p>
+        }
+        <a href="/UserDashboard/CourtBooking" class="mt-4 inline-block text-tennis-green hover:text-tennis-navy">Book a court →</a>
+    </div>
+
+    <!-- Membership Status --> 
+    <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="flex items-center justify-between mb-4">
+            <h2 class="text-xl font-semibold text-tennis-navy">Membership Status</h2>
+            <i class="fas fa-id-card text-tennis-green text-2xl"></i>
+        </div>
+        @if (Model.HasActiveMembership)
+        {
+            <div class="space-y-2">
+                <p class="text-green-600 font-medium">Active Membership</p>
+                <p class="text-sm text-gray-600">Valid until: @Model.MembershipEndDate?.ToShortDateString()</p>
+            </div>
+        }
+        else
+        {
+            <p class="text-gray-500">No active membership</p>
+            <a href="/UserDashboard/Membership" class="mt-4 inline-block text-tennis-green hover:text-tennis-navy">Apply for membership →</a>
+        }
+    </div>
+
+    <!-- Coaching Sessions -->
+    <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="flex items-center justify-between mb-4">
+            <h2 class="text-xl font-semibold text-tennis-navy">Coaching Sessions</h2>
+            <i class="fas fa-user-tie text-tennis-green text-2xl"></i>
+        </div>
+        @if (Model.RecentCoachingSessions.Any())
+        {
+            <div class="space-y-3">
+                @foreach (var session in Model.RecentCoachingSessions)
+                {
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                        <div>
+                            <p class="font-medium">Coach Session</p>
+                            <p class="text-sm text-gray-600">@session.Date.ToShortDateString() @session.Time</p>
+                        </div>
+                        <span class="px-3 py-1 rounded-full text-sm @(session.Status == "Confirmed" ? "bg-green-100 text-green-800" : "bg-yellow-100 text-yellow-800")">
+                            @session.Status
+                        </span>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <p class="text-gray-500">No coaching sessions</p>
+        }
+        <a href="/UserDashboard/CoachingSession" class="mt-4 inline-block text-tennis-green hover:text-tennis-navy">Book a session →</a>
+    </div>
+
+    <!-- Messages -->
+    <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="flex items-center justify-between mb-4">
+            <h2 class="text-xl font-semibold text-tennis-navy">Recent Messages</h2>
+            <i class="fas fa-comments text-tennis-green text-2xl"></i>
+        </div>
+        @if (Model.HasUnreadMessages)
+        {
+            <p class="text-tennis-yellow font-medium">You have unread messages</p>
+        }
+        else
+        {
+            <p class="text-gray-500">No new messages</p>
+        }
+        <a href="/UserDashboard/Messages" class="mt-4 inline-block text-tennis-green hover:text-tennis-navy">View all messages →</a>
+    </div>
+
+    <!-- Payment Summary -->
+    <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="flex items-center justify-between mb-4">
+            <h2 class="text-xl font-semibold text-tennis-navy">Payment Summary</h2>
+            <i class="fas fa-credit-card text-tennis-green text-2xl"></i>
+        </div>
+        <div class="space-y-2">
+            <div class="flex justify-between">
+                <span class="text-gray-600">Pending Payments:</span>
+                <span class="font-medium">@Model.PendingPaymentsCount</span>
+            </div>
+        </div>
+        <a href="/UserDashboard/Payments" class="mt-4 inline-block text-tennis-green hover:text-tennis-navy">View payments →</a>
+    </div>
+</div>

@@ -1,0 +1,140 @@
+@page
+@model TENNIS_COURT_MANAGEMENT.Pages.UserDashboard.CoachingSessionModel
+@{
+    ViewData["Title"] = "Coaching Sessions";
+    Layout = "_UserDashboardLayout";
+}
+
+<div class="space-y-6">
+    @if (!Model.HasActiveMembership)
+    {
+        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4" role="alert">
+            <p class="font-bold">Membership Required</p>
+            <p>You need an active membership to book coaching sessions. <a href="/UserDashboard/Membership" class="underline">Apply for membership</a></p>
+        </div>
+    }
+    else
+    {
+        <!-- Book Coaching Session Section -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold text-tennis-navy mb-6">Book a Coaching Session</h2>
+            
+            <form method="post" asp-page-handler="Search" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Date</label>
+                    <input type="date" name="Date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-tennis-green focus:ring-tennis-green" 
+                           min="@DateTime.Now.ToString("yyyy-MM-dd")" required>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Time</label>
+                    <select name="Time" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-tennis-green focus:ring-tennis-green" required>
+                        <option value="">Select Time</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Coach</label>
+                    <select name="CoachId" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-tennis-green focus:ring-tennis-green" required>
+                        <option value="">Select Coach</option>
+                        @foreach (var coach in Model.AvailableCoaches)
+                        {
+                            <option value="@coach.CoachId">@coach.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="md:col-span-3">
+                    <button type="submit" class="w-full bg-tennis-green hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                        Check Availability
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+        {
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                <span class="block sm:inline">@Model.ErrorMessage</span>
+            </div>
+        }
+
+        @if (Model.IsTimeSlotAvailable && Model.SelectedCoach != null)
+        {
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-semibold text-tennis-navy mb-4">Confirm Booking</h3>
+                <div class="mb-4">
+                    <p class="text-gray-600"><span class="font-medium">Coach:</span> @Model.SelectedCoach.Name</p>
+                    <p class="text-gray-600"><span class="font-medium">Date:</span> @Model.SearchDate?.ToShortDateString()</p>
+                    <p class="text-gray-600"><span class="font-medium">Time:</span> @Model.SearchTime</p>
+                    <p class="text-gray-600"><span class="font-medium">Price:</span> $@Model.SelectedCoach.Price</p>
+                </div>
+                <form method="post" asp-page-handler="Book">
+                    <input type="hidden" name="CoachId" value="@Model.SelectedCoach.CoachId">
+                    <input type="hidden" name="Date" value="@Model.SearchDate?.ToString("yyyy-MM-dd")">
+                    <input type="hidden" name="Time" value="@Model.SearchTime">
+                    <button type="submit" class="w-full bg-tennis-yellow hover:bg-yellow-500 text-tennis-navy font-bold py-2 px-4 rounded">
+                        Confirm Booking
+                    </button>
+                </form>
+            </div>
+        }
+    }
+
+    <!-- My Coaching Sessions -->
+    <div class="bg-white rounded-lg shadow-md p-6">
+        <h3 class="text-xl font-semibold text-tennis-navy mb-4">My Coaching Sessions</h3>
+        @if (Model.UserSessions != null && Model.UserSessions.Any())
+        {
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Coach</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Time</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        @foreach (var session in Model.UserSessions)
+                        {
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">@session.CoachName</td>
+                                <td class="px-6 py-4 whitespace-nowrap">@session.Date.ToShortDateString()</td>
+                                <td class="px-6 py-4 whitespace-nowrap">@session.Time</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+                                           @(session.Status == "Confirmed" ? "bg-green-100 text-green-800" : 
+                                             session.Status == "Pending" ? "bg-yellow-100 text-yellow-800" : 
+                                             "bg-red-100 text-red-800")">
+                                        @session.Status
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    @if (session.Status != "Cancelled" && session.Date > DateTime.Now)
+                                    {
+                                        <form method="post" asp-page-handler="Cancel" class="inline">
+                                            <input type="hidden" name="SessionId" value="@session.SessionId">
+                                            <button type="submit" class="text-red-600 hover:text-red-900">
+                                                Cancel
+                                            </button>
+                                        </form>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <p class="text-gray-500">No coaching sessions found</p>
+        }
+    </div>
+</div>

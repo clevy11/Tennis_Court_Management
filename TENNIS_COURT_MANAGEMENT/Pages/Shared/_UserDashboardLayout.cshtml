@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-gray-100">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Tennis Court Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'tennis-green': '#2D5A27',
+                        'tennis-yellow': '#FFB800',
+                        'tennis-navy': '#1A2238'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="h-full">
+    <div class="min-h-screen bg-gray-100">
+        <!-- Top Navigation -->
+        <nav class="bg-tennis-green text-white shadow-lg">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center space-x-8">
+                        <span class="text-2xl font-bold text-white">Welcome, @Context.Session.GetString("Username")</span>
+                    </div>
+                    <div class="flex items-center justify-end">
+                        <form method="post" asp-page-handler="Logout" class="mr-4">
+                            <button type="submit"
+                                class="bg-tennis-yellow hover:bg-yellow-500 text-tennis-navy font-semibold px-6 py-2 rounded-md transition duration-300 flex items-center space-x-2">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="flex h-[calc(100vh-4rem)]">
+            <!-- Sidebar -->
+            <div class="w-64 bg-tennis-navy text-white">
+                <div class="p-4">
+                    <nav class="space-y-2">
+                        <a href="/UserDashboard" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-tennis-green transition duration-200">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="/UserDashboard/CourtBooking" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-tennis-green transition duration-200">
+                            <i class="fas fa-calendar-plus"></i>
+                            <span>Book a Court</span>
+                        </a>
+                        <a href="/UserDashboard/CoachingSession" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-tennis-green transition duration-200">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Coaching Sessions</span>
+                        </a>
+                        <a href="/UserDashboard/Membership" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-tennis-green transition duration-200">
+                            <i class="fas fa-id-card"></i>
+                            <span>Membership</span>
+                        </a>
+                        <a href="/UserDashboard/Messages" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-tennis-green transition duration-200">
+                            <i class="fas fa-comments"></i>
+                            <span>Messages</span>
+                        </a>
+                        <a href="/UserDashboard/Payments" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-tennis-green transition duration-200">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Payments</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 p-6">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

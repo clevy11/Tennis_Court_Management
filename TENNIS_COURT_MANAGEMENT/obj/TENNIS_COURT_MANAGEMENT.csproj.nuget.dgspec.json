@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj": {}
+    "C:\\Users\\HP\\source\\repos\\clevy11\\Tennis_Court_Management\\TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj": {}
   },
   "projects": {
-    "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj": {
+    "C:\\Users\\HP\\source\\repos\\clevy11\\Tennis_Court_Management\\TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\source\\repos\\clevy11\\Tennis_Court_Management\\TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj",
         "projectName": "TENNIS_COURT_MANAGEMENT",
-        "projectPath": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj",
+        "projectPath": "C:\\Users\\HP\\source\\repos\\clevy11\\Tennis_Court_Management\\TENNIS_COURT_MANAGEMENT\\TENNIS_COURT_MANAGEMENT.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "D:\\clb\\school\\Dot net\\Tennis_cout_management\\TENNIS_COURT_MANAGEMENT\\obj\\",
+        "outputPath": "C:\\Users\\HP\\source\\repos\\clevy11\\Tennis_Court_Management\\TENNIS_COURT_MANAGEMENT\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -53,6 +53,10 @@
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.9.0, )"
+            },
+            "iTextSharp": {
+              "target": "Package",
+              "version": "[5.5.13.4, )"
             }
           },
           "imports": [
