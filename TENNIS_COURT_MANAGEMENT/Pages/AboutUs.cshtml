@@ -1,0 +1,144 @@
+@page
+@{
+    ViewData["Title"] = "About Us";
+}
+
+<style>
+    .nav-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #1A2238;
+        z-index: 10;
+    }
+
+    .tennis-yellow {
+        color: #FFD700;
+    }
+
+    .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s ease-in-out;
+    }
+
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+
+<!-- Navigation Bar -->
+<div class="nav-bar">
+    <nav class="relative z-10 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-6">
+                <div class="flex items-center">
+                    <span class="text-white text-2xl font-bold">TennisCourt</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="/Index" class="text-white hover:text-tennis-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="/AboutUs" class="text-tennis-yellow px-3 py-2 rounded-md text-sm font-medium">About us</a>
+                        <a href="/Login" class="text-white hover:text-tennis-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">Book Now</a>
+                        <a href="/Login" class="text-white hover:text-tennis-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">Membership</a>
+                        <a href="/Courts" class="text-white hover:text-tennis-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">Courts</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="pt-24">
+    <!-- Hero Section -->
+    <section class="relative bg-cover bg-center h-screen" style="background-image: url('https://storage.googleapis.com/a1aa/image/hySxpV9NmaLJPRGQciBMo37190JJBH5C1VcAi1IWzGHoit9E.jpg');">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="container mx-auto h-full flex items-center justify-center text-center relative z-10">
+            <div class="text-white max-w-2xl bg-black bg-opacity-70 p-6 rounded-lg">
+                <h2 class="text-4xl font-bold mb-4">About Us</h2>
+                <p class="text-lg mb-8">
+                    Tennis Courts With the quality of our courts and their beautiful setting offers an impressive team of teaching professionals. 
+                    Our Trainers are always there and always ready to help you to improve your game and have fun at the same time. 
+                    There is a programme to match your needs such as inter – members as well as Club competitions and tremendous social events 
+                    to pull our broad roster of players together.
+                </p>
+                <a href="#content" class="bg-tennis-green hover:bg-tennis-green/90 text-white font-bold py-2 px-4 rounded transition-colors">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="container mx-auto p-4" id="content">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 fade-in">
+            <div class="bg-white p-4 rounded shadow">
+                <img src="https://storage.googleapis.com/a1aa/image/hySxpV9NmaLJPRGQciBMo37190JJBH5C1VcAi1IWzGHoit9E.jpg"
+                     alt="Aerial view of a tennis court surrounded by lush greenery"
+                     class="w-full h-48 object-cover rounded mb-4" />
+                <h3 class="text-xl font-bold mb-2">Beautiful Setting</h3>
+                <p>Our courts are set in a beautiful environment, providing a serene and inspiring atmosphere for your games.</p>
+            </div>
+            
+            <div class="bg-white p-4 rounded shadow">
+                <img src="https://storage.googleapis.com/a1aa/image/1Jao1W5zAeUbPycl8elTcGB9dRaILU98Ozmmr0ZL2ePjkqtnA.jpg"
+                     alt="Professional tennis coaching session"
+                     class="w-full h-48 object-cover rounded mb-4" />
+                <h3 class="text-xl font-bold mb-2">Expert Coaching</h3>
+                <p>Learn from our certified professional coaches who are dedicated to improving your game at any skill level.</p>
+            </div>
+
+            <div class="bg-white p-4 rounded shadow">
+                <img src="https://storage.googleapis.com/a1aa/image/azWv0rDj9mahLdhe4eBRAqF3xQICiSLb96ss2V2uffDuJVbPB.jpg"
+                     alt="Modern tennis facilities"
+                     class="w-full h-48 object-cover rounded mb-4" />
+                <h3 class="text-xl font-bold mb-2">Premium Facilities</h3>
+                <p>Enjoy our world-class amenities and modern facilities designed for both practice and competition.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-tennis-green text-white p-4 mt-8">
+        <div class="container mx-auto text-center">
+            <p>© 2023 Tennis Club. All rights reserved.</p>
+        </div>
+    </footer>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tennis: {
+                            green: '#2C5530',
+                            yellow: '#e8e267',
+                        },
+                    },
+                },
+            },
+        }
+
+        // Function to detect elements in the viewport
+        function handleScroll() {
+            const elements = document.querySelectorAll(".fade-in");
+            elements.forEach((el) => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    el.classList.add("visible");
+                }
+            });
+        }
+
+        // Event Listener for Scroll
+        window.addEventListener("scroll", handleScroll);
+
+        // Trigger on Load
+        window.addEventListener("load", handleScroll);
+    </script>
+}

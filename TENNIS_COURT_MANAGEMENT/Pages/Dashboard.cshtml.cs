@@ -296,7 +296,7 @@ namespace TENNIS_COURT_MANAGEMENT.Pages
                         FROM Booking b
                         JOIN Users u ON b.user_id = u.user_id
                         JOIN Court c ON b.court_id = c.court_id
-                        ORDER BY b.date DESC, b.time DESC";
+                        ORDER BY b.booking_id DESC";
 
                     Bookings.Clear();
                     using (SqlCommand command = new SqlCommand(bookingsQuery, connection))
