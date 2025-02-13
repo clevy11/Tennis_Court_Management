@@ -1,0 +1,114 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Tennis Court Management System";
+}
+
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'tennis-green': '#2D5A27',
+                        'tennis-yellow': '#FFB800',
+                        'tennis-navy': '#1A2238'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="h-full">
+    <!-- Full screen hero section with navigation -->
+    <div class="relative min-h-screen">
+        <!-- Full screen background image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0"
+                 alt="Tennis Court"
+                 class="w-full h-full object-cover" />
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="relative z-10 bg-transparent">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center py-6">
+                    <div class="flex items-center">
+                        <span class="text-white text-2xl font-bold">TennisCourt</span>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-8">
+                            <a href="#home" class="text-white hover:text-tennis-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                            <a href="/AboutUs" class="text-white hover:text-tennis-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">About us</a>
+                            <a href="/Login" class="text-white hover:text-tennis-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">Book Now</a>
+                            <a href="/Login" class="text-white hover:text-tennis-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">Membership</a>
+                            <a href="/Courts" class="text-white hover:text-tennis-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">Courts</a>
+                        </div>
+                    </div>
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button type="button" class="text-white hover:text-tennis-yellow">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Content -->
+        <main class="relative z-10 flex items-center justify-center min-h-screen">
+            <div class="text-center px-4 sm:px-6 lg:px-8">
+                <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight mb-8">
+                    Welcome to <span class="text-tennis-yellow">TennisCourt</span>
+                </h1>
+                <p class="mt-3 max-w-md mx-auto text-lg text-gray-200 sm:text-xl md:mt-5 md:max-w-3xl">
+                    Experience the perfect blend of sport and luxury. Book your court today and elevate your game.
+                </p>
+                <div class="mt-10 flex justify-center gap-4">
+                    <a href="/Login" 
+                       class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-tennis-navy bg-tennis-yellow hover:bg-yellow-400 transition duration-150 ease-in-out">
+                        Book Now
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="/AboutUs" 
+                       class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-tennis-green hover:bg-green-700 transition duration-150 ease-in-out">
+                        Learn More
+                        <i class="fas fa-info-circle ml-2"></i>
+                    </a>
+                </div>
+                <!-- Quick Stats -->
+                <div class="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-3 opacity-90">
+                    <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-6 text-white">
+                        <div class="text-4xl font-bold mb-2">10+</div>
+                        <div class="text-sm">Professional Courts</div>
+                    </div>
+                    <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-6 text-white">
+                        <div class="text-4xl font-bold mb-2">24/7</div>
+                        <div class="text-sm">Booking Available</div>
+                    </div>
+                    <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-6 text-white">
+                        <div class="text-4xl font-bold mb-2">5⭐</div>
+                        <div class="text-sm">Customer Rating</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+            <a href="#features" class="text-white hover:text-tennis-yellow transition-colors">
+                <i class="fas fa-chevron-down animate-bounce text-2xl"></i>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

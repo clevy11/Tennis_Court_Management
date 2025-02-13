@@ -1,0 +1,79 @@
+@page
+@model TENNIS_COURT_MANAGEMENT.Pages.Dashboard.PaymentsModel
+@{
+    ViewData["Title"] = "Payments";
+    Layout = "_DashboardLayout";
+}
+
+<div class="space-y-6">
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <span class="block sm:inline">@Model.ErrorMessage</span>
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+    {
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+            <span class="block sm:inline">@Model.SuccessMessage</span>
+        </div>
+    }
+
+    <div class="bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-bold text-tennis-navy mb-6">All Payments</h2>
+        @if (Model.Payments != null && Model.Payments.Any())
+        {
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">User</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Details</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        @foreach (var payment in Model.Payments)
+                        {
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">@payment.UserName</td>
+                                <td class="px-6 py-4 whitespace-nowrap">@payment.Type</td>
+                                <td class="px-6 py-4 whitespace-nowrap">@payment.Details</td>
+                                <td class="px-6 py-4 whitespace-nowrap">$@payment.Amount</td>
+                                <td class="px-6 py-4 whitespace-nowrap">@payment.Date.ToShortDateString()</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+                                           @(payment.Status == "Completed" ? "bg-green-100 text-green-800" : 
+                                             payment.Status == "Pending" ? "bg-yellow-100 text-yellow-800" : 
+                                             "bg-red-100 text-red-800")">
+                                        @payment.Status
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    @if (payment.Status == "Pending")
+                                    {
+                                        <form method="post" class="inline">
+                                            <input type="hidden" name="PaymentId" value="@payment.PaymentId" />
+                                            <button type="submit" class="text-tennis-green hover:text-green-700 font-medium">
+                                                Mark as Paid
+                                            </button>
+                                        </form>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <p class="text-gray-500">No payments found</p>
+        }
+    </div>
+</div>

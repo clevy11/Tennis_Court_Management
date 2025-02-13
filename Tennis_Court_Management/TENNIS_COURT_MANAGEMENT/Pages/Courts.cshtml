@@ -1,0 +1,293 @@
+@page
+@{
+    ViewData["Title"] = "Tennis Courts";
+}
+
+<style>
+    .nav-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #1A2238;
+        z-index: 10;
+    }
+
+    .tennis-yellow {
+        color: #FFD700;
+    }
+</style>
+
+<!-- Navigation Bar -->
+<div class="nav-bar">
+    <nav class="relative z-10 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-6">
+                <div class="flex items-center">
+                    <span class="text-white text-2xl font-bold">TennisCourt</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="/Index" class="text-white hover:text-tennis-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="/AboutUs" class="text-white hover:text-tennis-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">About us</a>
+                        <a href="/Login" class="text-white hover:text-tennis-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">Book Now</a>
+                        <a href="/Login" class="text-white hover:text-tennis-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">Membership</a>
+                        <a href="/Courts" class="text-tennis-yellow px-3 py-2 rounded-md text-sm font-medium">Courts</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="pt-24">
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Court 1 -->
+            <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 bg-white">
+                <div class="relative h-48">
+                    <img src="https://storage.googleapis.com/a1aa/image/1Jao1W5zAeUbPycl8elTcGB9dRaILU98Ozmmr0ZL2ePjkqtnA.jpg" alt="Center Court at Downtown Tennis Club with a hard court surface" class="w-full h-full object-cover" width="800" height="600" />
+                </div>
+                <div class="p-4 space-y-3">
+                    <h3 class="text-xl font-semibold text-gray-800">Center Court</h3>
+                    <div class="flex items-center text-gray-600">
+                        <svg class="h-4 w-4 mr-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span class="text-sm">Downtown Tennis Club</span>
+                    </div>
+                    <div class="flex justify-between items-center pt-2">
+                        <span class="text-sm text-gray-500">Hard Court</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-800">$45/hr</span>
+                            <a href="/Login" class="bg-tennis-green hover:bg-tennis-green/90 text-white px-4 py-2 rounded transition-colors">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Repeat similar structure for Courts 2-8 -->
+            <!-- Court 2 -->
+            <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 bg-white">
+                <div class="relative h-48">
+                    <img src="https://storage.googleapis.com/a1aa/image/azWv0rDj9mahLdhe4eBRAqF3xQICiSLb96ss2V2uffDuJVbPB.jpg" alt="Clay Master at Tennis Academy" class="w-full h-full object-cover" width="800" height="600" />
+                </div>
+                <div class="p-4 space-y-3">
+                    <h3 class="text-xl font-semibold text-gray-800">Clay Master</h3>
+                    <div class="flex items-center text-gray-600">
+                        <svg class="h-4 w-4 mr-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span class="text-sm">Tennis Academy</span>
+                    </div>
+                    <div class="flex justify-between items-center pt-2">
+                        <span class="text-sm text-gray-500">Clay Court</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-800">$55/hr</span>
+                            <a href="/Login" class="bg-tennis-green hover:bg-tennis-green/90 text-white px-4 py-2 rounded transition-colors">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <!-- Court 4 -->
+    <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 bg-white">
+     <div class="relative h-48">
+      <img alt="Indoor Court at City Sports Complex with an indoor court surface" class="w-full h-full object-cover" height="600" src="https://storage.googleapis.com/a1aa/image/RlAErfmKw92pCybFstopG0JhSuTpBWVtbbCptLffzgbqkqtnA.jpg" width="800"/>
+     </div>
+     <div class="p-4 space-y-3">
+      <h3 class="text-xl font-semibold text-gray-800">
+       Indoor Court
+      </h3>
+      <div class="flex items-center text-gray-600">
+       <svg class="h-4 w-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z">
+        </path>
+        <circle cx="12" cy="10" r="3">
+        </circle>
+       </svg>
+       <span class="text-sm">
+        City Sports Complex
+       </span>
+      </div>
+      <div class="flex justify-between items-center pt-2">
+       <span class="text-sm text-gray-500">
+        Indoor Court
+       </span>
+       <div class="flex items-center gap-2">
+        <span class="font-semibold text-gray-800">
+         $60/hr
+        </span>
+        <a class="bg-tennis-green hover:bg-tennis-green/90 text-white px-4 py-2 rounded transition-colors" href="/Login">
+         Book Now
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+    <!-- Court 5 -->
+    <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 bg-white">
+     <div class="relative h-48">
+      <img alt="Beach Court at Seaside Resort with a sand court surface" class="w-full h-full object-cover" height="600" src="https://storage.googleapis.com/a1aa/image/D3dsftWeI3jrEU94ugyidQL1RLOIXjZG2BSVNOSBmRLYS12TA.jpg" width="800"/>
+     </div>
+     <div class="p-4 space-y-3">
+      <h3 class="text-xl font-semibold text-gray-800">
+       Beach Court
+      </h3>
+      <div class="flex items-center text-gray-600">
+       <svg class="h-4 w-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z">
+        </path>
+        <circle cx="12" cy="10" r="3">
+        </circle>
+       </svg>
+       <span class="text-sm">
+        Seaside Resort
+       </span>
+      </div>
+      <div class="flex justify-between items-center pt-2">
+       <span class="text-sm text-gray-500">
+        Sand Court
+       </span>
+       <div class="flex items-center gap-2">
+        <span class="font-semibold text-gray-800">
+         $40/hr
+        </span>
+        <a class="bg-tennis-green hover:bg-tennis-green/90 text-white px-4 py-2 rounded transition-colors" href="/Login">
+         Book Now
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+    <!-- Court 6 -->
+    <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 bg-white">
+     <div class="relative h-48">
+      <img alt="Rooftop Court at Skyline Club with a hard court surface" class="w-full h-full object-cover" height="600" src="https://storage.googleapis.com/a1aa/image/KjNJsrz3e4R8KSjA0amrNM6Ne3n949EE0nIOEUSD8L1XS12TA.jpg" width="800"/>
+     </div>
+     <div class="p-4 space-y-3">
+      <h3 class="text-xl font-semibold text-gray-800">
+       Rooftop Court
+      </h3>
+      <div class="flex items-center text-gray-600">
+       <svg class="h-4 w-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z">
+        </path>
+        <circle cx="12" cy="10" r="3">
+        </circle>
+       </svg>
+       <span class="text-sm">
+        Skyline Club
+       </span>
+      </div>
+      <div class="flex justify-between items-center pt-2">
+       <span class="text-sm text-gray-500">
+        Hard Court
+       </span>
+       <div class="flex items-center gap-2">
+        <span class="font-semibold text-gray-800">
+         $70/hr
+        </span>
+        <a class="bg-tennis-green hover:bg-tennis-green/90 text-white px-4 py-2 rounded transition-colors" href="/Login">
+         Book Now
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+    <!-- Court 7 -->
+    <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 bg-white">
+     <div class="relative h-48">
+      <img alt="Community Court at Local Park with a hard court surface" class="w-full h-full object-cover" height="600" src="https://storage.googleapis.com/a1aa/image/fv8uhe11dcn3Dkq0fh0hWoR3N5nFJ1JqznsPjfJiIOkLJVbPB.jpg" width="800"/>
+     </div>
+     <div class="p-4 space-y-3">
+      <h3 class="text-xl font-semibold text-gray-800">
+       Community Court
+      </h3>
+      <div class="flex items-center text-gray-600">
+       <svg class="h-4 w-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z">
+        </path>
+        <circle cx="12" cy="10" r="3">
+        </circle>
+       </svg>
+       <span class="text-sm">
+        Local Park
+       </span>
+      </div>
+      <div class="flex justify-between items-center pt-2">
+       <span class="text-sm text-gray-500">
+        Hard Court
+       </span>
+       <div class="flex items-center gap-2">
+        <span class="font-semibold text-gray-800">
+         $30/hr
+        </span>
+        <a class="bg-tennis-green hover:bg-tennis-green/90 text-white px-4 py-2 rounded transition-colors" href="/Login">
+         Book Now
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+    <!-- Court 8 -->
+    <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 bg-white">
+     <div class="relative h-48">
+      <img alt="Private Court at Exclusive Club with a hard court surface" class="w-full h-full object-cover" height="600" src="https://storage.googleapis.com/a1aa/image/BJxQZT9tG2YIFVFhFdSL5v9vtQ2D0feSWxWyRK3GfOO0kqtnA.jpg" width="800"/>
+     </div>
+     <div class="p-4 space-y-3">
+      <h3 class="text-xl font-semibold text-gray-800">
+       Private Court
+      </h3>
+      <div class="flex items-center text-gray-600">
+       <svg class="h-4 w-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z">
+        </path>
+        <circle cx="12" cy="10" r="3">
+        </circle>
+       </svg>
+       <span class="text-sm">
+        Exclusive Club
+       </span>
+      </div>
+      <div class="flex justify-between items-center pt-2">
+       <span class="text-sm text-gray-500">
+        Hard Court
+       </span>
+       <div class="flex items-center gap-2">
+        <span class="font-semibold text-gray-800">
+         $100/hr
+        </span>
+        <a class="bg-tennis-green hover:bg-tennis-green/90 text-white px-4 py-2 rounded transition-colors" href="/Login">
+         Book Now
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+
+            
+            
+        </div>
+    </main>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tennis: {
+                            green: '#2C5530',
+                            yellow: '#e8e267',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+}

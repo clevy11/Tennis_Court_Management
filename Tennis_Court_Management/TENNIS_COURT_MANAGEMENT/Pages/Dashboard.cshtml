@@ -1,0 +1,250 @@
+@page
+@model DashboardModel
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Tennis Court Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'tennis-green': '#2D5A27',
+                        'tennis-yellow': '#FFB800',
+                        'tennis-navy': '#1A2238'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+        <nav class="bg-[#2D5A27] text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-8">
+                    <span class="text-2xl font-bold text-white">Admin Dashboard</span>
+                    
+                </div>
+                <div class="flex items-center space-x-3">
+                    <a href="/Dashboard?handler=GenerateReport"
+                        class="bg-tennis-yellow hover:bg-yellow-500 text-tennis-navy font-semibold px-6 py-2 rounded-md transition duration-300 flex items-center space-x-2">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>Generate Report</span>
+                    </a>
+                    <form method="post" asp-page-handler="Logout" class="inline">
+                        <button type="submit"
+                            class="bg-tennis-yellow hover:bg-yellow-500 text-tennis-navy font-semibold px-6 py-2 rounded-md transition duration-300 flex items-center space-x-2">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <div class="w-64 bg-[#1A2238] text-white">
+            <div class="p-4">
+                <nav class="mt-5 flex-1 px-2 space-y-1">
+                    <a href="/Dashboard" class="@(ViewContext.RouteData.Values["Page"]?.ToString() == "/Dashboard" ? "bg-tennis-green text-white" : "text-gray-300 hover:bg-tennis-green hover:text-white") group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        <svg class="mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                        Dashboard
+                    </a>
+
+                    <a href="/Dashboard/Messages" class="@(ViewContext.RouteData.Values["Page"]?.ToString() == "/Dashboard/Messages" ? "bg-tennis-green text-white" : "text-gray-300 hover:bg-tennis-green hover:text-white") group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        <svg class="mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                        </svg>
+                        Messages
+                    </a>
+
+                    <a href="/Dashboard/Bookings" class="@(ViewContext.RouteData.Values["Page"]?.ToString() == "/Dashboard/Bookings" ? "bg-tennis-green text-white" : "text-gray-300 hover:bg-tennis-green hover:text-white") group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        <svg class="mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        Bookings
+                    </a>
+
+                    <a href="/Dashboard/Payments" class="@(ViewContext.RouteData.Values["Page"]?.ToString() == "/Dashboard/Payments" ? "bg-tennis-green text-white" : "text-gray-300 hover:bg-tennis-green hover:text-white") group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        <svg class="mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        Payments
+                    </a>
+
+                    <a href="/Dashboard/Memberships" class="@(ViewContext.RouteData.Values["Page"]?.ToString() == "/Dashboard/Memberships" ? "bg-tennis-green text-white" : "text-gray-300 hover:bg-tennis-green hover:text-white") group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        <svg class="mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        Memberships
+                    </a>
+
+                    <a href="/Dashboard/Courts" class="@(ViewContext.RouteData.Values["Page"]?.ToString() == "/Dashboard/Courts" ? "bg-tennis-green text-white" : "text-gray-300 hover:bg-tennis-green hover:text-white") group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        <svg class="mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                        </svg>
+                        Courts
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-8">
+            <div class="container mx-auto px-4 py-8">
+                @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                {
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+                        <span class="block sm:inline">@Model.ErrorMessage</span>
+                    </div>
+                }
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-gray-800">Dashboard Overview</h1>
+                    <p class="text-gray-600">Welcome to your admin dashboard</p>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <!-- Total Users -->
+                    <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#2D5A27]">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-[#2D5A27] bg-opacity-10">
+                                <i class="fas fa-users text-[#2D5A27] text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-500 uppercase">Total Users</p>
+                                <p class="text-2xl font-semibold text-gray-800">@Model.TotalUsers</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Active Bookings -->
+                    <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#FFB800]">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-[#FFB800] bg-opacity-10">
+                                <i class="fas fa-calendar-check text-[#FFB800] text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-500 uppercase">Active Bookings</p>
+                                <p class="text-2xl font-semibold text-gray-800">@Model.ActiveBookings</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Total Courts -->
+                    <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#1A2238]">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-[#1A2238] bg-opacity-10">
+                                <i class="fas fa-table-tennis text-[#1A2238] text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-500 uppercase">Total Courts</p>
+                                <p class="text-2xl font-semibold text-gray-800">@Model.TotalCourts</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Revenue -->
+                    <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-green-500">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-green-500 bg-opacity-10">
+                                <i class="fas fa-dollar-sign text-green-500 text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-500 uppercase">Total Revenue</p>
+                                <p class="text-2xl font-semibold text-gray-800">$@Model.TotalRevenue</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity Section -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Recent Bookings -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-xl font-semibold text-gray-800 mb-4">Recent Bookings</h2>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">User</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Court</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200">
+                                    @foreach (var booking in Model.Bookings)
+                                    {
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap">@booking.UserName</td>
+                                            <td class="px-6 py-4 whitespace-nowrap">@booking.CourtName</td>
+                                            <td class="px-6 py-4 whitespace-nowrap">@booking.Date.ToString("yyyy-MM-dd")</td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <span class="px-2 py-1 text-xs font-semibold rounded-full @(booking.Status == "Confirmed" ? "bg-green-100 text-green-800" : "bg-yellow-100 text-yellow-800")">
+                                                    @booking.Status
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Active Members -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-xl font-semibold text-gray-800 mb-4">Active Members</h2>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 rounded-full bg-[#2D5A27] flex items-center justify-center text-white">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <p class="text-sm font-medium text-gray-900">Regular Members</p>
+                                        <p class="text-sm text-gray-500">@Model.ActiveMembers active</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 rounded-full bg-[#FFB800] flex items-center justify-center text-white">
+                                        <i class="fas fa-user-tie"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <p class="text-sm font-medium text-gray-900">Coaches</p>
+                                        <p class="text-sm text-gray-500">@Model.ActiveCoaches active</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#2D5A27] text-white py-4 mt-8">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center">
+                <p>&copy; 2024 Tennis Court Management. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

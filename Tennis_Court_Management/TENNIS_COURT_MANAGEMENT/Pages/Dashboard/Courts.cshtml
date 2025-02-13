@@ -1,0 +1,159 @@
+@page
+@model TENNIS_COURT_MANAGEMENT.Pages.CourtsModel
+@{
+    ViewData["Title"] = "Tennis Courts";
+    ViewData["CurrentPage"] = "Courts";
+    Layout = "_DashboardLayout";
+}
+
+<div class="bg-white rounded-lg shadow p-6">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-xl font-semibold text-gray-800">Tennis Courts</h2>
+        <button type="button" onclick="openAddCourtModal()" 
+                class="bg-tennis-green hover:bg-tennis-navy text-white px-4 py-2 rounded-md transition-colors duration-200">
+            <i class="fas fa-plus"></i> Add New Court
+        </button>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+    {
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
+            <span class="block sm:inline">@Model.SuccessMessage</span>
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+            <span class="block sm:inline">@Model.ErrorMessage</span>
+        </div>
+    }
+
+    <!-- Courts Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        @foreach (var court in Model.Courts)
+        {
+            <div class="bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <div class="p-5">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900">Court @court.CourtId</h3>
+                            <p class="text-sm text-gray-600 mt-1">@court.CourtType</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-lg font-bold text-tennis-green">$@court.Price</p>
+                            <p class="text-sm text-gray-500">per hour</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 flex justify-end space-x-2">
+                        <button type="button" onclick="openEditCourtModal(@court.CourtId, '@court.CourtType', @court.Price)"
+                                class="text-tennis-navy hover:text-tennis-green transition-colors duration-200">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <form method="post" class="inline" onsubmit="return confirm('Are you sure you want to delete this court?');">
+                            <input type="hidden" name="courtId" value="@court.CourtId" />
+                            <button type="submit" asp-page-handler="Delete"
+                                    class="text-red-600 hover:text-red-800 transition-colors duration-200">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Add Court Modal -->
+<div id="addCourtModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">
+    <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+        <div class="mt-3">
+            <h3 class="text-lg font-medium text-gray-900 mb-4">Add New Court</h3>
+            <form method="post" asp-page-handler="Add">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700">Court Type</label>
+                    <input type="text" name="courtType" required
+                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-tennis-green focus:ring-tennis-green">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700">Price per Hour</label>
+                    <input type="number" name="price" required min="0" step="0.01"
+                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-tennis-green focus:ring-tennis-green">
+                </div>
+                <div class="flex justify-end space-x-3">
+                    <button type="button" onclick="closeAddCourtModal()"
+                            class="bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300 transition-colors duration-200">
+                        Cancel
+                    </button>
+                    <button type="submit"
+                            class="bg-tennis-green text-white px-4 py-2 rounded-md hover:bg-tennis-navy transition-colors duration-200">
+                        Add Court
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Court Modal -->
+<div id="editCourtModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">
+    <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+        <div class="mt-3">
+            <h3 class="text-lg font-medium text-gray-900 mb-4">Edit Court</h3>
+            <form method="post" asp-page-handler="Edit">
+                <input type="hidden" id="editCourtId" name="courtId">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700">Court Type</label>
+                    <input type="text" id="editCourtType" name="courtType" required
+                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-tennis-green focus:ring-tennis-green">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700">Price per Hour</label>
+                    <input type="number" id="editPrice" name="price" required min="0" step="0.01"
+                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-tennis-green focus:ring-tennis-green">
+                </div>
+                <div class="flex justify-end space-x-3">
+                    <button type="button" onclick="closeEditCourtModal()"
+                            class="bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300 transition-colors duration-200">
+                        Cancel
+                    </button>
+                    <button type="submit"
+                            class="bg-tennis-green text-white px-4 py-2 rounded-md hover:bg-tennis-navy transition-colors duration-200">
+                        Save Changes
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function openAddCourtModal() {
+            document.getElementById('addCourtModal').classList.remove('hidden');
+        }
+
+        function closeAddCourtModal() {
+            document.getElementById('addCourtModal').classList.add('hidden');
+        }
+
+        function openEditCourtModal(courtId, courtType, price) {
+            document.getElementById('editCourtId').value = courtId;
+            document.getElementById('editCourtType').value = courtType;
+            document.getElementById('editPrice').value = price;
+            document.getElementById('editCourtModal').classList.remove('hidden');
+        }
+
+        function closeEditCourtModal() {
+            document.getElementById('editCourtModal').classList.add('hidden');
+        }
+
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('fixed')) {
+                event.target.classList.add('hidden');
+            }
+        }
+    </script>
+}
